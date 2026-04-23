@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260423e" />
   </head>
   <body>
     <main class="app-shell" id="appShell">
@@ -157,7 +157,7 @@
             <header class="dashboard-topbar">
               <button type="button" class="dash-icon-btn" id="dashboardMenuBtn" aria-label="Open menu">☰</button>
               <div class="dashboard-user">
-                <p class="dashboard-tier">Free Subscriber</p>
+                <p class="dashboard-tier" data-i18n="dashboardTier">Free Subscriber</p>
                 <p class="dashboard-name" id="dashboardUserName">Satyavathi S</p>
               </div>
               <img
@@ -169,11 +169,11 @@
 
             <aside class="dashboard-drawer" id="dashboardDrawer" aria-label="Dashboard menu">
               <button type="button" class="drawer-close" id="dashboardDrawerClose" aria-label="Close menu">×</button>
-              <h3>Menu</h3>
-              <button type="button" class="drawer-link">My Profile</button>
-              <button type="button" class="drawer-link">Farm Settings</button>
-              <button type="button" class="drawer-link">Saved Reports</button>
-              <button type="button" class="drawer-link">Language</button>
+              <h3 data-i18n="drawerMenuTitle">Menu</h3>
+              <button type="button" class="drawer-link" data-i18n="drawerMyProfile">My Profile</button>
+              <button type="button" class="drawer-link" data-i18n="drawerFarmSettings">Farm Settings</button>
+              <button type="button" class="drawer-link" data-i18n="drawerSavedReports">Saved Reports</button>
+              <button type="button" class="drawer-link" data-i18n="drawerLanguage">Language</button>
             </aside>
             <div class="dashboard-drawer-overlay" id="dashboardDrawerOverlay"></div>
 
@@ -184,113 +184,115 @@
                 class="dashboard-search"
                 placeholder="Search crops, prices, posts, products"
                 aria-label="Search dashboard"
+                data-i18n-placeholder="dashboardSearchPlaceholder"
               />
               <button type="button" class="dash-icon-btn" aria-label="Notifications">🔔</button>
             </div>
 
             <div class="dashboard-scroll">
-              <section class="dash-card notifications-card">
-                <h2>Notifications</h2>
-                <ul class="notification-list" id="notificationList">
-                  <li>Rain alert for your district in next 24 hours.</li>
-                  <li>New market advisory published for tomato crop.</li>
-                  <li>Pesticide safety checklist is ready to review.</li>
-                  <li>Community discussion started in your language.</li>
-                </ul>
-              </section>
-
               <section class="dash-card quick-actions-card">
                 <div class="dash-card-head">
-                  <h2>Quick Actions</h2>
+                  <h2 data-i18n="quickActionsTitle">Quick Actions</h2>
                 </div>
                 <div class="quick-grid">
-                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Crop management" class="quick-icon" /><span>Crop Management</span></button>
-                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Market advisory" class="quick-icon" /><span>Market Advisory</span></button>
-                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Agri dealers" class="quick-icon" /><span>Agri Dealers</span></button>
-                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Ag products" class="quick-icon" /><span>Ag Products</span></button>
-                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Equipment rentals" class="quick-icon" /><span>Equipment Rentals</span></button>
-                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Pesticide products" class="quick-icon" /><span>Pesticide Products</span></button>
+                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Crop management" class="quick-icon" /><span data-i18n="quickCropManagement">Crop Management</span></button>
+                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Market advisory" class="quick-icon" /><span data-i18n="quickMarketAdvisory">Market Advisory</span></button>
+                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Agri dealers" class="quick-icon" /><span data-i18n="quickAgriDealers">Agri Dealers</span></button>
+                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Ag products" class="quick-icon" /><span data-i18n="quickAgriProducts">Ag Products</span></button>
+                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Equipment rentals" class="quick-icon" /><span data-i18n="quickEquipmentRentals">Equipment Rentals</span></button>
+                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Pesticide products" class="quick-icon" /><span data-i18n="quickPesticideProducts">Pesticide Products</span></button>
                 </div>
+              </section>
+
+              <section class="dash-card notifications-card" aria-live="polite">
+                <div class="dash-card-head notifications-head">
+                  <h2 data-i18n="liveNotificationsTitle">Live Notifications</h2>
+                  <p class="notification-update-meta" id="notificationUpdateMeta">Updating agriculture feed...</p>
+                </div>
+                <p class="notification-subtitle" data-i18n="notificationSubtitle">Latest happenings..</p>
+                <ul class="notification-list" id="notificationList">
+                  <li>Loading agriculture updates...</li>
+                </ul>
               </section>
 
               <section class="dash-card mandi-card" data-search-group>
                 <div class="dash-card-head">
-                  <h2>Mandi Prices</h2>
+                  <h2 data-i18n="mandiPricesTitle">Mandi Prices</h2>
                 </div>
                 <div class="chart-wrap">
                   <canvas id="priceChart" class="price-chart" height="170" aria-label="Mandi price chart"></canvas>
-                  <p class="chart-note">Chart updates automatically from your entered mandi prices.</p>
+                  <p class="chart-note" data-i18n="chartNote">Chart updates automatically from your entered mandi prices.</p>
                 </div>
                 <form class="entry-form" id="priceForm" novalidate>
-                  <input type="text" id="cropNameInput" placeholder="Crop name" required />
-                  <input type="text" id="marketInput" placeholder="Market or district" required />
-                  <input type="number" id="maxPriceInput" placeholder="Max price" min="1" required />
-                  <input type="number" id="avgPriceInput" placeholder="Avg price" min="1" required />
-                  <button type="submit">Add Price Card</button>
+                  <input type="text" id="cropNameInput" placeholder="Crop name" data-i18n-placeholder="cropNamePlaceholder" required />
+                  <input type="text" id="marketInput" placeholder="Market or district" data-i18n-placeholder="marketPlaceholder" required />
+                  <input type="number" id="maxPriceInput" placeholder="Max price" data-i18n-placeholder="maxPricePlaceholder" min="1" required />
+                  <input type="number" id="avgPriceInput" placeholder="Avg price" data-i18n-placeholder="avgPricePlaceholder" min="1" required />
+                  <button type="submit" data-i18n="addPriceCardBtn">Add Price Card</button>
                 </form>
                 <div class="entry-list" id="priceList">
-                  <p class="empty-note">No price cards yet. Add your first crop price.</p>
+                  <p class="empty-note" data-i18n="emptyPriceCards">No price cards yet. Add your first crop price.</p>
                 </div>
               </section>
 
               <section class="dash-card community-card" data-search-group>
                 <div class="dash-card-head">
-                  <h2>Community Updates</h2>
+                  <h2 data-i18n="communityUpdatesTitle">Community Updates</h2>
                 </div>
                 <form class="entry-form" id="postForm" novalidate>
-                  <input type="text" id="postTitleInput" placeholder="Post title" required />
-                  <input type="text" id="postLocationInput" placeholder="Village or area" required />
-                  <input type="text" id="postStageInput" placeholder="Stage (example: Flowering)" required />
-                  <textarea id="postTextInput" rows="3" placeholder="What happened in your farm?" required></textarea>
-                  <button type="submit">Publish Update</button>
+                  <input type="text" id="postTitleInput" placeholder="Post title" data-i18n-placeholder="postTitlePlaceholder" required />
+                  <input type="text" id="postLocationInput" placeholder="Village or area" data-i18n-placeholder="postLocationPlaceholder" required />
+                  <input type="text" id="postStageInput" placeholder="Stage (example: Flowering)" data-i18n-placeholder="postStagePlaceholder" required />
+                  <textarea id="postTextInput" rows="3" placeholder="What happened in your farm?" data-i18n-placeholder="postTextPlaceholder" required></textarea>
+                  <button type="submit" data-i18n="publishUpdateBtn">Publish Update</button>
                 </form>
                 <div class="entry-list" id="postList">
-                  <p class="empty-note">No community updates yet. Share the first update.</p>
+                  <p class="empty-note" data-i18n="emptyCommunityUpdates">No community updates yet. Share the first update.</p>
                 </div>
               </section>
 
               <section class="dash-card products-card" data-search-group>
                 <div class="dash-card-head">
-                  <h2>Trending Products</h2>
+                  <h2 data-i18n="trendingProductsTitle">Trending Products</h2>
                 </div>
                 <form class="entry-form" id="productForm" novalidate>
-                  <input type="text" id="productNameInput" placeholder="Product name" required />
-                  <input type="text" id="productTypeInput" placeholder="Category" required />
-                  <input type="number" id="productPriceInput" placeholder="Price" min="1" required />
-                  <input type="url" id="productImageInput" placeholder="Product image URL (optional)" />
+                  <input type="text" id="productNameInput" placeholder="Product name" data-i18n-placeholder="productNamePlaceholder" required />
+                  <input type="text" id="productTypeInput" placeholder="Category" data-i18n-placeholder="productTypePlaceholder" required />
+                  <input type="number" id="productPriceInput" placeholder="Price" data-i18n-placeholder="productPricePlaceholder" min="1" required />
+                  <input type="url" id="productImageInput" placeholder="Product image URL (optional)" data-i18n-placeholder="productImageUrlPlaceholder" />
                   <input type="file" id="productImageFileInput" accept="image/*" />
-                  <button type="submit">Add Product</button>
+                  <button type="submit" data-i18n="addProductBtn">Add Product</button>
                 </form>
                 <div class="entry-list" id="productList">
-                  <p class="empty-note">No products yet. Add the first product card.</p>
+                  <p class="empty-note" data-i18n="emptyProducts">No products yet. Add the first product card.</p>
                 </div>
               </section>
 
               <section class="dash-card support-card">
                 <div class="dash-card-head">
-                  <h2>About and Support</h2>
+                  <h2 data-i18n="aboutSupportTitle">About and Support</h2>
                 </div>
                 <div class="quick-grid support-grid">
-                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="About us" class="quick-icon" /><span>About Us</span></button>
-                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Contact us" class="quick-icon" /><span>Contact Us</span></button>
-                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Feedback" class="quick-icon" /><span>Feedback</span></button>
-                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Notifications" class="quick-icon" /><span>Notifications</span></button>
+                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="About us" class="quick-icon" /><span data-i18n="supportAboutUs">About Us</span></button>
+                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Contact us" class="quick-icon" /><span data-i18n="supportContactUs">Contact Us</span></button>
+                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Feedback" class="quick-icon" /><span data-i18n="supportFeedback">Feedback</span></button>
+                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Notifications" class="quick-icon" /><span data-i18n="supportNotifications">Notifications</span></button>
                 </div>
               </section>
             </div>
 
             <nav class="dashboard-bottom-nav" aria-label="Dashboard sections">
-              <button type="button" class="bottom-nav-item active">Crop Info</button>
-              <button type="button" class="bottom-nav-item">Advisory</button>
-              <button type="button" class="bottom-nav-item">Pesticides</button>
-              <button type="button" class="bottom-nav-item">Agri Forum</button>
-              <button type="button" class="bottom-nav-item">Community</button>
+              <button type="button" class="bottom-nav-item active" data-i18n="navCropInfo">Crop Info</button>
+              <button type="button" class="bottom-nav-item" data-i18n="navAdvisory">Advisory</button>
+              <button type="button" class="bottom-nav-item" data-i18n="navPesticides">Pesticides</button>
+              <button type="button" class="bottom-nav-item" data-i18n="navAgriForum">Agri Forum</button>
+              <button type="button" class="bottom-nav-item" data-i18n="navCommunity">Community</button>
             </nav>
           </div>
         </section>
       </div>
     </main>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260423e"></script>
   </body>
 </html>

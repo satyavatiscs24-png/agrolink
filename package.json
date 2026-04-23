@@ -1,0 +1,17 @@
+{
+  "name": "agrolink",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Agrolink dashboard with real-time agriculture notifications",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

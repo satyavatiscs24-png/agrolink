@@ -24,3 +24,42 @@ This system will be accessible via a simple web/mobile interface, making it easy
 - Database: MongoDB  
 - AI Tools: Machine Learning APIs  
 
+## Live Notification Feed Setup
+
+This project now includes a backend-powered real-time agriculture notification feed with:
+- Full-width feed cards (image, title, short description, time)
+- Auto-refresh every 5 to 10 minutes
+- Agriculture-focused filtering (weather, crop disease, mandi/price)
+- Language-aware response support via backend translation
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Configure environment variables
+
+Copy [.env.example](.env.example) values into your own environment:
+
+- `NEWS_API_KEY`: key from NewsAPI
+- `GOOGLE_TRANSLATE_API_KEY`: key for Google Translate API (for selected-language output)
+- `PORT`: optional, defaults to `8000`
+
+### 3. Run the app
+
+```bash
+npm run dev
+```
+
+Open: `http://localhost:8000`
+
+### 4. API endpoint
+
+Backend notification endpoint:
+
+`GET /api/notifications?lang=hi`
+
+Supported language codes include:
+`en`, `hi`, `gu`, `ta`, `kn`, `te`, `ml`, `mr`, `pa`, `bn`, `as`, `mni-Mtei`, `ur`, `or`
+
