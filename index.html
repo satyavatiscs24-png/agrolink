@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agrolink</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell" id="appShell">
+      <div class="page-track" id="pageTrack">
+        <section class="page page-hero" role="banner" aria-label="Intro">
+          <div class="bg-overlay" aria-hidden="true"></div>
+
+          <div class="hero-image-wrap">
+            <img
+              src="assets/agriculture-bg.jpg"
+              alt="Digital agriculture landscape"
+              class="hero-image"
+            />
+            <div class="hero-wash"></div>
+          </div>
+
+          <div class="logo-ring">
+            <div class="ring-glow"></div>
+            <img src="assets/agriculture-bg.jpg" alt="AgriTwin icon" class="app-icon" id="appIcon" />
+          </div>
+
+          <div class="title-block">
+            <h1>AgriTwin</h1>
+            <p>"Your Soil's Digital Intelligence"</p>
+          </div>
+
+          <button class="start-pill" id="startButton" type="button" aria-label="Swipe to signup page">
+            <span></span><span></span><span></span>
+          </button>
+        </section>
+
+        <section class="page page-signup" aria-label="Signup">
+          <div class="signup-bg-wrap" aria-hidden="true">
+            <img src="assets/signup-bg.jpg" alt="Smart farming background" class="signup-bg" />
+            <div class="signup-bg-shade"></div>
+          </div>
+
+          <div class="signup-card">
+            <h2>Join Our Platform</h2>
+            <form id="signupForm" novalidate>
+              <label for="identity">Email or Phone Number</label>
+              <input id="identity" name="identity" type="text" placeholder="Enter your email or phone number" required />
+
+              <label for="password">Password</label>
+              <input id="password" name="password" type="password" placeholder="Create a password" required />
+
+              <button class="signup-btn" type="submit">Sign Up</button>
+            </form>
+
+            <p class="hint">Use your email or phone number to create your account.</p>
+            <p class="auth-text">
+              Already have an account?
+              <a href="#" class="auth-link" data-target-page="2">Login</a>
+            </p>
+          </div>
+        </section>
+
+        <section class="page page-login" aria-label="Login">
+          <div class="signup-bg-wrap" aria-hidden="true">
+            <img src="assets/signup-bg.jpg" alt="Smart farming background" class="signup-bg" />
+            <div class="signup-bg-shade login-shade"></div>
+          </div>
+
+          <div class="login-card">
+            <h2>Login</h2>
+
+            <form id="loginForm" novalidate>
+              <label for="loginIdentity">Email or Phone Number</label>
+              <input id="loginIdentity" name="loginIdentity" type="text" placeholder="Enter your email or phone number" required />
+
+              <label for="loginPassword">Password</label>
+              <input id="loginPassword" name="loginPassword" type="password" placeholder="Enter your password" required />
+
+              <button class="login-btn" type="submit">Launch</button>
+            </form>
+
+            <p class="login-helper">Login with the same details you used in sign up.</p>
+            <p class="auth-text login-link-block">
+              Don&apos;t have an account?
+              <a href="#" class="auth-link" data-target-page="1">Sign Up</a>
+            </p>
+          </div>
+        </section>
+
+        <section class="page page-language" aria-label="Language selection">
+          <div class="language-bg-wrap" aria-hidden="true">
+            <img src="assets/signup-bg.jpg" alt="Smart farming background" class="language-bg" />
+            <div class="language-bg-shade"></div>
+          </div>
+
+          <div class="language-card">
+            <p class="kicker">AgriTwin</p>
+            <h2>Select Your Language</h2>
+            <p>Choose your preferred language to continue</p>
+
+            <div class="search-box">
+              <input 
+                type="text" 
+                id="languageSearch" 
+                class="language-search" 
+                placeholder="Search language"
+                aria-label="Search languages"
+              />
+              <span class="search-icon">🔍</span>
+            </div>
+
+            <div class="language-grid" id="languageGrid">
+              <button type="button" class="language-chip" data-language="english">English</button>
+              <button type="button" class="language-chip" data-language="hindi">हिन्दी</button>
+              <button type="button" class="language-chip" data-language="gujarati">ગુજરાતી</button>
+              <button type="button" class="language-chip" data-language="tamil">தமிழ்</button>
+              <button type="button" class="language-chip" data-language="kannada">ಕನ್ನಡ</button>
+              <button type="button" class="language-chip" data-language="telugu">తెలుగు</button>
+              <button type="button" class="language-chip" data-language="malayalam">മലയാളം</button>
+              <button type="button" class="language-chip" data-language="marathi">मराठी</button>
+              <button type="button" class="language-chip" data-language="punjabi">ਪੰਜਾਬੀ</button>
+              <button type="button" class="language-chip" data-language="bengali">বাংলা</button>
+              <button type="button" class="language-chip" data-language="assamese">অসমীয়া</button>
+              <button type="button" class="language-chip" data-language="manipuri">मणिपुरी</button>
+              <button type="button" class="language-chip" data-language="urdu">اردو</button>
+              <button type="button" class="language-chip" data-language="khasi">Khasi</button>
+              <button type="button" class="language-chip" data-language="odia">ଓଡିଆ</button>
+            </div>
+
+            <div class="selected-language-display">
+              <p>Selected language: <span id="selectedLanguageName">None</span></p>
+            </div>
+
+            <div class="language-actions">
+              <button type="button" class="proceed-btn" id="languageProceedBtn" disabled>
+                Submit & Proceed
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="page page-dashboard" aria-label="Home Dashboard">
+          <div class="dashboard-bg-wrap" aria-hidden="true">
+            <img src="assets/signup-bg.jpg" alt="Dashboard background" class="dashboard-bg" />
+            <div class="dashboard-bg-shade"></div>
+          </div>
+
+          <div class="dashboard-shell" id="dashboardShell">
+            <header class="dashboard-topbar">
+              <button type="button" class="dash-icon-btn" id="dashboardMenuBtn" aria-label="Open menu">☰</button>
+              <div class="dashboard-user">
+                <p class="dashboard-tier">Free Subscriber</p>
+                <p class="dashboard-name" id="dashboardUserName">Satyavathi S</p>
+              </div>
+              <img
+                src="https://static.vecteezy.com/system/resources/thumbnails/053/797/246/small/hope-line-filled-icon-vector.jpg"
+                alt="Profile"
+                class="dashboard-avatar"
+              />
+            </header>
+
+            <aside class="dashboard-drawer" id="dashboardDrawer" aria-label="Dashboard menu">
+              <button type="button" class="drawer-close" id="dashboardDrawerClose" aria-label="Close menu">×</button>
+              <h3>Menu</h3>
+              <button type="button" class="drawer-link">My Profile</button>
+              <button type="button" class="drawer-link">Farm Settings</button>
+              <button type="button" class="drawer-link">Saved Reports</button>
+              <button type="button" class="drawer-link">Language</button>
+            </aside>
+            <div class="dashboard-drawer-overlay" id="dashboardDrawerOverlay"></div>
+
+            <div class="dashboard-search-row">
+              <input
+                id="dashboardSearch"
+                type="text"
+                class="dashboard-search"
+                placeholder="Search crops, prices, posts, products"
+                aria-label="Search dashboard"
+              />
+              <button type="button" class="dash-icon-btn" aria-label="Notifications">🔔</button>
+            </div>
+
+            <div class="dashboard-scroll">
+              <section class="dash-card notifications-card">
+                <h2>Notifications</h2>
+                <ul class="notification-list" id="notificationList">
+                  <li>Rain alert for your district in next 24 hours.</li>
+                  <li>New market advisory published for tomato crop.</li>
+                  <li>Pesticide safety checklist is ready to review.</li>
+                  <li>Community discussion started in your language.</li>
+                </ul>
+              </section>
+
+              <section class="dash-card quick-actions-card">
+                <div class="dash-card-head">
+                  <h2>Quick Actions</h2>
+                </div>
+                <div class="quick-grid">
+                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Crop management" class="quick-icon" /><span>Crop Management</span></button>
+                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Market advisory" class="quick-icon" /><span>Market Advisory</span></button>
+                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Agri dealers" class="quick-icon" /><span>Agri Dealers</span></button>
+                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Ag products" class="quick-icon" /><span>Ag Products</span></button>
+                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Equipment rentals" class="quick-icon" /><span>Equipment Rentals</span></button>
+                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Pesticide products" class="quick-icon" /><span>Pesticide Products</span></button>
+                </div>
+              </section>
+
+              <section class="dash-card mandi-card" data-search-group>
+                <div class="dash-card-head">
+                  <h2>Mandi Prices</h2>
+                </div>
+                <div class="chart-wrap">
+                  <canvas id="priceChart" class="price-chart" height="170" aria-label="Mandi price chart"></canvas>
+                  <p class="chart-note">Chart updates automatically from your entered mandi prices.</p>
+                </div>
+                <form class="entry-form" id="priceForm" novalidate>
+                  <input type="text" id="cropNameInput" placeholder="Crop name" required />
+                  <input type="text" id="marketInput" placeholder="Market or district" required />
+                  <input type="number" id="maxPriceInput" placeholder="Max price" min="1" required />
+                  <input type="number" id="avgPriceInput" placeholder="Avg price" min="1" required />
+                  <button type="submit">Add Price Card</button>
+                </form>
+                <div class="entry-list" id="priceList">
+                  <p class="empty-note">No price cards yet. Add your first crop price.</p>
+                </div>
+              </section>
+
+              <section class="dash-card community-card" data-search-group>
+                <div class="dash-card-head">
+                  <h2>Community Updates</h2>
+                </div>
+                <form class="entry-form" id="postForm" novalidate>
+                  <input type="text" id="postTitleInput" placeholder="Post title" required />
+                  <input type="text" id="postLocationInput" placeholder="Village or area" required />
+                  <input type="text" id="postStageInput" placeholder="Stage (example: Flowering)" required />
+                  <textarea id="postTextInput" rows="3" placeholder="What happened in your farm?" required></textarea>
+                  <button type="submit">Publish Update</button>
+                </form>
+                <div class="entry-list" id="postList">
+                  <p class="empty-note">No community updates yet. Share the first update.</p>
+                </div>
+              </section>
+
+              <section class="dash-card products-card" data-search-group>
+                <div class="dash-card-head">
+                  <h2>Trending Products</h2>
+                </div>
+                <form class="entry-form" id="productForm" novalidate>
+                  <input type="text" id="productNameInput" placeholder="Product name" required />
+                  <input type="text" id="productTypeInput" placeholder="Category" required />
+                  <input type="number" id="productPriceInput" placeholder="Price" min="1" required />
+                  <input type="url" id="productImageInput" placeholder="Product image URL (optional)" />
+                  <input type="file" id="productImageFileInput" accept="image/*" />
+                  <button type="submit">Add Product</button>
+                </form>
+                <div class="entry-list" id="productList">
+                  <p class="empty-note">No products yet. Add the first product card.</p>
+                </div>
+              </section>
+
+              <section class="dash-card support-card">
+                <div class="dash-card-head">
+                  <h2>About and Support</h2>
+                </div>
+                <div class="quick-grid support-grid">
+                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="About us" class="quick-icon" /><span>About Us</span></button>
+                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Contact us" class="quick-icon" /><span>Contact Us</span></button>
+                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Feedback" class="quick-icon" /><span>Feedback</span></button>
+                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Notifications" class="quick-icon" /><span>Notifications</span></button>
+                </div>
+              </section>
+            </div>
+
+            <nav class="dashboard-bottom-nav" aria-label="Dashboard sections">
+              <button type="button" class="bottom-nav-item active">Crop Info</button>
+              <button type="button" class="bottom-nav-item">Advisory</button>
+              <button type="button" class="bottom-nav-item">Pesticides</button>
+              <button type="button" class="bottom-nav-item">Agri Forum</button>
+              <button type="button" class="bottom-nav-item">Community</button>
+            </nav>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
