@@ -323,6 +323,10 @@ if (languageSearch) {
 
 updateSelectedLanguageUI();
 
+if (selectedLanguage) {
+  loadDashboardLanguagePack();
+}
+
 // Proceed button functionality
 if (languageProceedBtn) {
   languageProceedBtn.addEventListener("click", async () => {
@@ -800,6 +804,14 @@ const FALLBACK_NOTIFICATIONS = [
     publishedAt: new Date().toISOString(),
     sourceUrl: "",
   },
+  {
+    title: "Field operations alert: Prepare for strong winds tomorrow",
+    description: "Secure shade nets and loose irrigation lines; avoid spraying during high wind periods.",
+    category: "weather",
+    imageUrl: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+    publishedAt: new Date().toISOString(),
+    sourceUrl: "",
+  },
 ];
 
 const CATEGORY_IMAGE_FALLBACKS = {
@@ -1067,12 +1079,12 @@ const saveDashboardData = () => {
   localStorage.setItem(storageKeys.crops, JSON.stringify(dashboardData.crops));
 };
 
-const createRow = (label, value) => {
+const createRow = (labelKey, value) => {
   const row = document.createElement("p");
   row.className = "entry-meta";
 
   const labelSpan = document.createElement("span");
-  labelSpan.textContent = `${label}: `;
+  labelSpan.textContent = `${formatDashboardText(labelKey)}: `;
 
   const valueSpan = document.createElement("strong");
   valueSpan.textContent = value;
@@ -1168,9 +1180,9 @@ const createPriceCard = (item) => {
   const title = document.createElement("h3");
   title.textContent = item.cropName;
 
-  const marketRow = createRow("Market", item.marketName);
-  const maxRow = createRow("Max Price", `Rs ${item.maxPrice}`);
-  const avgRow = createRow("Avg Price", `Rs ${item.avgPrice}`);
+  const marketRow = createRow("priceMarketLabel", item.marketName);
+  const maxRow = createRow("priceMaxLabel", `Rs ${item.maxPrice}`);
+  const avgRow = createRow("priceAvgLabel", `Rs ${item.avgPrice}`);
 
   card.append(title, marketRow, maxRow, avgRow);
   return card;
@@ -1184,8 +1196,8 @@ const createPostCard = (item) => {
   const title = document.createElement("h3");
   title.textContent = item.titleValue;
 
-  const locationRow = createRow("Area", item.locationValue);
-  const stageRow = createRow("Stage", item.stageValue);
+  const locationRow = createRow("postAreaLabel", item.locationValue);
+  const stageRow = createRow("postStageLabel", item.stageValue);
 
   const body = document.createElement("p");
   body.className = "entry-text";
@@ -1211,8 +1223,8 @@ const createProductCard = (item) => {
   const title = document.createElement("h3");
   title.textContent = item.nameValue;
 
-  const typeRow = createRow("Category", item.typeValue);
-  const priceRow = createRow("Price", `Rs ${item.priceValue}`);
+  const typeRow = createRow("productCategoryLabel", item.typeValue);
+  const priceRow = createRow("productPriceLabel", `Rs ${item.priceValue}`);
 
   card.append(title, typeRow, priceRow);
   return card;
@@ -1248,11 +1260,60 @@ const renderDashboardData = () => {
   renderAddedCropCards();
 };
 
+const seedDashboardData = () => {
+  let shouldSave = false;
+
+  if (!dashboardData.prices.length) {
+    dashboardData.prices = [
+      { cropName: "Tomato", marketName: "Bengaluru Mandi", maxPrice: "3400", avgPrice: "2950" },
+      { cropName: "Onion", marketName: "Pune Mandi", maxPrice: "2600", avgPrice: "2200" },
+      { cropName: "Wheat", marketName: "Indore Mandi", maxPrice: "2400", avgPrice: "2150" },
+      { cropName: "Chilli", marketName: "Hyderabad Mandi", maxPrice: "9200", avgPrice: "8600" },
+    ];
+    shouldSave = true;
+  }
+
+  if (!dashboardData.posts.length) {
+    dashboardData.posts = [
+      { titleValue: "Irrigation done", locationValue: "Nanjangud", stageValue: "Flowering", textValue: "Sprinkler irrigation completed and crop looks healthy." },
+      { titleValue: "Pest scouting update", locationValue: "Akola", stageValue: "Vegetative", textValue: "Spotted early leaf spot symptoms; started neem-based spray." },
+      { titleValue: "Harvest schedule", locationValue: "Coimbatore", stageValue: "Maturing", textValue: "Wheat harvest will begin next week after weather clears." },
+      { titleValue: "Market pickup", locationValue: "Nashik", stageValue: "Post-harvest", textValue: "Fresh produce collected and transported to the nearby mandi." },
+    ];
+    shouldSave = true;
+  }
+
+  if (!dashboardData.products.length) {
+    dashboardData.products = [
+      { nameValue: "Hybrid Tomato Seeds", typeValue: "Seeds", priceValue: "120", imageValue: "https://images.unsplash.com/photo-1592841200221-a6898f307baa?auto=format&fit=crop&w=1200&q=80" },
+      { nameValue: "Bio Compost Granules", typeValue: "Fertilizers", priceValue: "280", imageValue: "https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?auto=format&fit=crop&w=1200&q=80" },
+      { nameValue: "Power Weeder", typeValue: "Tools", priceValue: "18500", imageValue: "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1200&q=80" },
+      { nameValue: "Neem Coated Urea", typeValue: "Fertilizers", priceValue: "320", imageValue: "https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?auto=format&fit=crop&w=1200&q=80" },
+    ];
+    shouldSave = true;
+  }
+
+  if (!dashboardData.crops.length) {
+    dashboardData.crops = [
+      { cropName: "Brinjal", cultivationType: "Organic", year: "2025", area: "1.2" },
+      { cropName: "Banana", cultivationType: "Inorganic", year: "2024", area: "0.8" },
+      { cropName: "Maize", cultivationType: "Organic", year: "2025", area: "2.5" },
+      { cropName: "Turmeric", cultivationType: "Inorganic", year: "2024", area: "1.0" },
+    ];
+    shouldSave = true;
+  }
+
+  if (shouldSave) {
+    saveDashboardData();
+  }
+};
+
 const initDashboardData = () => {
   dashboardData.prices = loadStoredArray(storageKeys.prices);
   dashboardData.posts = loadStoredArray(storageKeys.posts);
   dashboardData.products = loadStoredArray(storageKeys.products);
   dashboardData.crops = loadStoredArray(storageKeys.crops);
+  seedDashboardData();
   renderDashboardData();
 };
 
@@ -1267,7 +1328,7 @@ const renderAddedCropCards = () => {
   if (!dashboardData.crops.length) {
     const emptyNote = document.createElement("p");
     emptyNote.className = "empty-note";
-    emptyNote.textContent = "No crops added yet. Tap Add Crop to continue.";
+    emptyNote.textContent = formatDashboardText("cropAddedEmpty");
     addedCropsList.appendChild(emptyNote);
     return;
   }
@@ -1284,7 +1345,7 @@ const renderAddedCropCards = () => {
 
       const meta = document.createElement("p");
       meta.className = "entry-meta";
-      meta.innerHTML = `<span>Type:</span> <strong>${item.cultivationType}</strong> • <span>Year:</span> <strong>${item.year}</strong> • <span>Area:</span> <strong>${item.area}</strong>`;
+      meta.innerHTML = `<span>${formatDashboardText("cropTypeLabel")}</span> <strong>${item.cultivationType}</strong> • <span>${formatDashboardText("cropYearLabel")}</span> <strong>${item.year}</strong> • <span>${formatDashboardText("cropAreaLabel")}</span> <strong>${item.area}</strong>`;
 
       card.append(title, meta);
       addedCropsList.appendChild(card);
@@ -1718,7 +1779,7 @@ const renderDealerList = (searchQuery = "") => {
   if (!visibleDealers.length) {
     const emptyNode = document.createElement("p");
     emptyNode.className = "empty-note";
-    emptyNode.textContent = "No dealers matched your search.";
+    emptyNode.textContent = formatDashboardText("noDealersFoundText");
     dealersList.appendChild(emptyNode);
     return;
   }
@@ -1729,8 +1790,8 @@ const renderDealerList = (searchQuery = "") => {
     card.style.setProperty("--dealer-delay", `${index * 55}ms`);
 
     const distanceLabel = Number.isFinite(dealer.distanceKm)
-      ? `${dealer.distanceKm.toFixed(1)} km away`
-      : "Distance unavailable";
+      ? `${dealer.distanceKm.toFixed(1)} ${formatDashboardText("distanceAwayLabel")}`
+      : formatDashboardText("distanceUnavailableText");
 
     card.innerHTML = `
       <div class="dealer-card-head">
@@ -1749,15 +1810,15 @@ const renderDealerList = (searchQuery = "") => {
       <div class="dealer-rating-row">
         <span class="dealer-stars">${formatStars(dealer.rating)}</span>
         <strong>${dealer.rating.toFixed(1)}</strong>
-        <span>(${dealer.reviews} reviews)</span>
+        <span>(${dealer.reviews} ${formatDashboardText("reviewsText")})</span>
       </div>
 
       <p class="dealer-review">"${dealer.reviewQuote}"</p>
 
       <div class="dealer-actions">
-        <a href="tel:${dealer.phone.replace(/\s+/g, "")}" class="dealer-action-btn">Call</a>
-        <button type="button" class="dealer-action-btn dealer-map-btn">Directions</button>
-        <span class="dealer-open-state ${dealer.openNow ? "open" : "closed"}">${dealer.openNow ? "Open Now" : "Closed"}</span>
+        <a href="tel:${dealer.phone.replace(/\s+/g, "")}" class="dealer-action-btn">${formatDashboardText("callLabel")}</a>
+        <button type="button" class="dealer-action-btn dealer-map-btn">${formatDashboardText("directionsLabel")}</button>
+        <span class="dealer-open-state ${dealer.openNow ? "open" : "closed"}">${dealer.openNow ? formatDashboardText("openNowLabel") : formatDashboardText("closedLabel")}</span>
       </div>
     `;
 
@@ -1803,7 +1864,7 @@ const updateNearestDealerHero = () => {
   }
 
   nearestDealerSummary.textContent = `Nearest fertilizer shop - ${nearestDealer.distanceKm.toFixed(1)} km away`;
-  nearestDealerDetail.textContent = `${nearestDealer.name} in ${nearestDealer.district} | Rating ${nearestDealer.rating.toFixed(1)} (${nearestDealer.reviews} reviews)`;
+  nearestDealerDetail.textContent = `${nearestDealer.name} in ${nearestDealer.district} | Rating ${nearestDealer.rating.toFixed(1)} (${nearestDealer.reviews} ${formatDashboardText("reviewsText")})`;
 };
 
 const initAgriDealers = () => {
@@ -1915,12 +1976,12 @@ const renderAgProducts = () => {
 
   const items = getFilteredAgProducts();
   agProductsList.innerHTML = "";
-  agProductsCount.textContent = `${items.length} products`;
+  agProductsCount.textContent = `${items.length} ${formatDashboardText("productsCountSuffix")}`;
 
   if (!items.length) {
     const emptyNote = document.createElement("p");
     emptyNote.className = "empty-note";
-    emptyNote.textContent = "No products found for this filter.";
+    emptyNote.textContent = formatDashboardText("noProductsFoundText");
     agProductsList.appendChild(emptyNote);
     return;
   }
@@ -1943,7 +2004,7 @@ const renderAgProducts = () => {
       <p class="ag-product-seller">Seller: ${item.seller}</p>
       <p class="ag-product-price">${formatCurrency(item.price)} <span>/ ${item.unit}</span></p>
       <div class="ag-product-qty-row">
-        <p class="ag-product-qty-label">Quantity</p>
+        <p class="ag-product-qty-label">${formatDashboardText("productQuantityLabel")}</p>
         <div class="ag-product-qty-control">
           <button type="button" class="qty-btn qty-minus">−</button>
           <input type="number" class="qty-input" min="1" max="99" value="${initialQty}" aria-label="Quantity for ${item.name}" />
@@ -1952,8 +2013,8 @@ const renderAgProducts = () => {
       </div>
       <p class="ag-product-total">Total: <strong>${formatCurrency(item.price * initialQty)}</strong></p>
       <div class="ag-product-actions">
-        <button type="button" class="ag-product-btn ag-buy-btn">Buy Now</button>
-        <button type="button" class="ag-product-btn ag-order-btn">Order</button>
+        <button type="button" class="ag-product-btn ag-buy-btn">${formatDashboardText("buyNowLabel")}</button>
+        <button type="button" class="ag-product-btn ag-order-btn">${formatDashboardText("orderLabel")}</button>
       </div>
     `;
 
@@ -1996,12 +2057,12 @@ const renderAgProducts = () => {
     qtyInput.addEventListener("input", updateTotal);
 
     buyBtn.addEventListener("click", () => {
-      buyBtn.textContent = "Added ✓";
+      buyBtn.textContent = formatDashboardText("addedLabel");
       buyBtn.disabled = true;
     });
 
     orderBtn.addEventListener("click", () => {
-      orderBtn.textContent = "Ordered ✓";
+      orderBtn.textContent = formatDashboardText("orderedLabel") || formatDashboardText("addedLabel");
       orderBtn.disabled = true;
     });
 
@@ -2087,15 +2148,15 @@ const renderEquipmentRentals = () => {
   rentalsList.innerHTML = "";
 
   if (!rentals.length) {
-    rentalsMetaText.textContent = "Equipments not available near your location";
+    rentalsMetaText.textContent = formatDashboardText("rentalsUnavailable");
     const empty = document.createElement("p");
     empty.className = "empty-note";
-    empty.textContent = "No nearby tractors/harvesters/tools right now. Try ALL or change location.";
+    empty.textContent = formatDashboardText("rentalsNoneNearby");
     rentalsList.appendChild(empty);
     return;
   }
 
-  rentalsMetaText.textContent = rentalsFilterMode === "nearby" ? "Showing only nearby rentals" : "Showing all rental places";
+  rentalsMetaText.textContent = rentalsFilterMode === "nearby" ? formatDashboardText("rentalsShowingNearby") : formatDashboardText("rentalsShowingAll");
 
   rentals.forEach((item, index) => {
     const card = document.createElement("article");
@@ -2115,7 +2176,7 @@ const renderEquipmentRentals = () => {
       <p class="rental-price">${formatCurrency(item.price)} <span>${priceLabel}</span></p>
       <div class="rental-actions">
         <span class="rental-availability ${availabilityClass}">${availabilityText}</span>
-        <button type="button" class="rental-book-btn" ${item.available ? "" : "disabled"}>Book now</button>
+        <button type="button" class="rental-book-btn" ${item.available ? "" : "disabled"}>${formatDashboardText("bookNowLabel")}</button>
       </div>
     `;
 

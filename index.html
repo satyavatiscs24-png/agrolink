@@ -33,12 +33,13 @@
           </div>
 
           <div class="title-block">
-            <h1>AgriTwin</h1>
-            <p>"Your Soil's Digital Intelligence"</p>
+            <h1 data-i18n="pageHeroHeading">AgriTwin</h1>
+            <p data-i18n="pageHeroSubtext">"Your Soil's Digital Intelligence"</p>
           </div>
 
           <button class="start-pill" id="startButton" type="button" aria-label="Swipe to signup page">
             <span></span><span></span><span></span>
+            <span class="pill-label" data-i18n="pageHeroStartButton">Get Started</span>
           </button>
         </section>
 
@@ -49,21 +50,21 @@
           </div>
 
           <div class="signup-card">
-            <h2>Join Our Platform</h2>
+            <h2 data-i18n="signupJoinPlatform">Join Our Platform</h2>
             <form id="signupForm" novalidate>
-              <label for="identity">Email or Phone Number</label>
-              <input id="identity" name="identity" type="text" placeholder="Enter your email or phone number" required />
+              <label for="identity" data-i18n="signupEmailLabel">Email or Phone Number</label>
+              <input id="identity" name="identity" type="text" placeholder="Enter your email or phone number" data-i18n-placeholder="signupIdentityPlaceholder" required />
 
-              <label for="password">Password</label>
-              <input id="password" name="password" type="password" placeholder="Create a password" required />
+              <label for="password" data-i18n="signupPasswordLabel">Password</label>
+              <input id="password" name="password" type="password" placeholder="Create a password" data-i18n-placeholder="signupPasswordPlaceholder" required />
 
-              <button class="signup-btn" type="submit">Sign Up</button>
+              <button class="signup-btn" type="submit" data-i18n="signupBtn">Sign Up</button>
             </form>
 
-            <p class="hint">Use your email or phone number to create your account.</p>
+            <p class="hint" data-i18n="signupHint">Use your email or phone number to create your account.</p>
             <p class="auth-text">
-              Already have an account?
-              <a href="#" class="auth-link" data-target-page="2">Login</a>
+              <span data-i18n="signupAuthText">Already have an account?</span>
+              <a href="#" class="auth-link" data-target-page="2" data-i18n="signupLoginLink">Login</a>
             </p>
           </div>
         </section>
@@ -75,22 +76,22 @@
           </div>
 
           <div class="login-card">
-            <h2>Login</h2>
+            <h2 data-i18n="loginTitle">Login</h2>
 
             <form id="loginForm" novalidate>
-              <label for="loginIdentity">Email or Phone Number</label>
-              <input id="loginIdentity" name="loginIdentity" type="text" placeholder="Enter your email or phone number" required />
+              <label for="loginIdentity" data-i18n="loginIdentityLabel">Email or Phone Number</label>
+              <input id="loginIdentity" name="loginIdentity" type="text" placeholder="Enter your email or phone number" data-i18n-placeholder="loginIdentityPlaceholder" required />
 
-              <label for="loginPassword">Password</label>
-              <input id="loginPassword" name="loginPassword" type="password" placeholder="Enter your password" required />
+              <label for="loginPassword" data-i18n="loginPasswordLabel">Password</label>
+              <input id="loginPassword" name="loginPassword" type="password" placeholder="Enter your password" data-i18n-placeholder="loginPasswordPlaceholder" required />
 
-              <button class="login-btn" type="submit">Launch</button>
+              <button class="login-btn" type="submit" data-i18n="loginBtn">Launch</button>
             </form>
 
-            <p class="login-helper">Login with the same details you used in sign up.</p>
+            <p class="login-helper" data-i18n="loginHelper">Login with the same details you used in sign up.</p>
             <p class="auth-text login-link-block">
-              Don&apos;t have an account?
-              <a href="#" class="auth-link" data-target-page="1">Sign Up</a>
+              <span data-i18n="loginNoAccountText">Don&apos;t have an account?</span>
+              <a href="#" class="auth-link" data-target-page="1" data-i18n="loginSignUpLink">Sign Up</a>
             </p>
           </div>
         </section>
@@ -102,9 +103,9 @@
           </div>
 
           <div class="language-card">
-            <p class="kicker">AgriTwin</p>
-            <h2>Select Your Language</h2>
-            <p>Choose your preferred language to continue</p>
+            <p class="kicker" data-i18n="languageKicker">AgriTwin</p>
+            <h2 data-i18n="languageHeading">Select Your Language</h2>
+            <p data-i18n="languageSubtitle">Choose your preferred language to continue</p>
 
             <div class="search-box">
               <input 
@@ -113,6 +114,7 @@
                 class="language-search" 
                 placeholder="Search language"
                 aria-label="Search languages"
+                data-i18n-placeholder="languageSearchPlaceholder"
               />
               <span class="search-icon">🔍</span>
             </div>
@@ -136,11 +138,11 @@
             </div>
 
             <div class="selected-language-display">
-              <p>Selected language: <span id="selectedLanguageName">None</span></p>
+              <p><span data-i18n="languageSelectedLabel">Selected language:</span> <span id="selectedLanguageName">None</span></p>
             </div>
 
             <div class="language-actions">
-              <button type="button" class="proceed-btn" id="languageProceedBtn" disabled>
+              <button type="button" class="proceed-btn" id="languageProceedBtn" disabled data-i18n="languageSubmitBtn">
                 Submit & Proceed
               </button>
             </div>
@@ -304,12 +306,12 @@
 
             <section class="crop-hero-card" aria-label="Add crop banner">
               <div class="crop-hero-illustration" aria-hidden="true">🌱</div>
-              <button type="button" id="goToCropSelectionBtn" class="crop-hero-add-btn">Add Crop</button>
+              <button type="button" id="goToCropSelectionBtn" class="crop-hero-add-btn" data-i18n="cropAddCropBtn">Add Crop</button>
             </section>
 
             <section class="added-crops-section" aria-live="polite">
               <div class="added-crops-head">
-                <h3>My Added Crops</h3>
+                <h3 data-i18n="cropAddedCropsHeading">My Added Crops</h3>
                 <p id="addedCropCount">0 of 30</p>
               </div>
               <div class="added-crops-list" id="addedCropsList">
@@ -323,7 +325,7 @@
           <div class="crop-select-shell">
             <header class="crop-select-topbar">
               <button type="button" class="crop-nav-btn" id="cropSelectBackBtn" aria-label="Back to crop management">←</button>
-              <h2>Select Your Crops</h2>
+              <h2 data-i18n="cropSelectHeading">Select Your Crops</h2>
             </header>
 
             <div class="crop-search-wrap">
@@ -332,6 +334,7 @@
                 type="text"
                 placeholder="Search for crops"
                 aria-label="Search crops"
+                data-i18n-placeholder="cropSearchPlaceholder"
               />
             </div>
 
@@ -343,15 +346,15 @@
           <div class="market-shell">
             <header class="market-topbar">
               <button type="button" class="crop-nav-btn" id="marketAdvisoryBackBtn" aria-label="Back to dashboard">←</button>
-              <h2>Market Advisory</h2>
+              <h2 data-i18n="marketTitle">Market Advisory</h2>
               <button type="button" class="market-share-btn" aria-label="Share market advisory">⤴</button>
             </header>
 
             <div class="market-controls">
-              <label for="marketStateSelect">State</label>
+              <label for="marketStateSelect" data-i18n="marketStateLabel">State</label>
               <select id="marketStateSelect"></select>
 
-              <label for="marketCropSelect">Select Crop</label>
+              <label for="marketCropSelect" data-i18n="marketCropLabel">Select Crop</label>
               <select id="marketCropSelect"></select>
 
               <p class="market-date" id="marketDateText"></p>
@@ -359,28 +362,28 @@
 
             <div class="market-scroll" id="marketScroll">
               <section class="market-panel">
-                <h3>Current crop prices (based on location)</h3>
-                <p id="locationPriceValue">Select state and crop</p>
-                <p class="market-subtext" id="locationPriceMeta">Location-aware district price will appear here.</p>
+                <h3 data-i18n="marketCurrentPricesHeading">Current crop prices (based on location)</h3>
+                <p id="locationPriceValue" data-i18n="marketSelectPrompt">Select state and crop</p>
+                <p class="market-subtext" id="locationPriceMeta" data-i18n="marketPriceMetaText">Location-aware district price will appear here.</p>
               </section>
 
               <section class="market-panel">
-                <h3>Price trends (graph)</h3>
+                <h3 data-i18n="marketPriceTrendHeading">Price trends (graph)</h3>
                 <canvas id="marketTrendChart" height="170" aria-label="Crop price trends graph"></canvas>
               </section>
 
               <section class="market-panel">
-                <h3>Best time to sell</h3>
-                <p id="bestSellTimeText">Select state and crop to get suggestion.</p>
+                <h3 data-i18n="marketBestTimeHeading">Best time to sell</h3>
+                <p id="bestSellTimeText" data-i18n="marketBestSellTimeDefault">Select state and crop to get suggestion.</p>
               </section>
 
               <section class="market-panel">
-                <h3>Nearby markets (mandis)</h3>
+                <h3 data-i18n="marketNearbyHeading">Nearby markets (mandis)</h3>
                 <div class="nearby-mandis" id="nearbyMandisList"></div>
               </section>
 
               <section class="market-panel">
-                <h3>District Price Details</h3>
+                <h3 data-i18n="marketDistrictHeading">District Price Details</h3>
                 <div class="district-price-list" id="districtPriceList"></div>
               </section>
             </div>
@@ -391,12 +394,12 @@
           <div class="dealers-shell">
             <header class="dealers-topbar">
               <button type="button" class="crop-nav-btn" id="agriDealersBackBtn" aria-label="Back to dashboard">←</button>
-              <h2>Agri Dealers</h2>
+              <h2 data-i18n="dealerTitle">Agri Dealers</h2>
               <button type="button" class="dealers-refresh-btn" id="agriDealersRefreshBtn" aria-label="Refresh nearby dealers">⟳</button>
             </header>
 
             <section class="dealers-hero-card" aria-live="polite">
-              <p class="dealers-kicker">Nearest Shop</p>
+              <p class="dealers-kicker" data-i18n="dealerNearestKicker">Nearest Shop</p>
               <h3 id="nearestDealerSummary">Nearest fertilizer shop - calculating distance...</h3>
               <p id="nearestDealerDetail">Enable location to get live nearby dealer ranking.</p>
             </section>
@@ -428,7 +431,7 @@
           <div class="ag-products-shell">
             <header class="ag-products-topbar">
               <button type="button" class="crop-nav-btn" id="agProductsBackBtn" aria-label="Back to dashboard">←</button>
-              <h2>Buy/Sell Agri Products</h2>
+              <h2 data-i18n="productsTitle">Buy/Sell Agri Products</h2>
               <button type="button" class="ag-products-refresh" id="agProductsRefreshBtn" aria-label="Refresh products">⟳</button>
             </header>
 
@@ -442,7 +445,7 @@
             </div>
 
             <div class="ag-products-filter-row">
-              <input id="agProductsSearch" type="text" placeholder="Search products, category, seller" aria-label="Search agri products" />
+              <input id="agProductsSearch" type="text" placeholder="Search products, category, seller" aria-label="Search agri products" data-i18n-placeholder="productsSearchPlaceholder" />
               <p id="agProductsCount">0 products</p>
             </div>
 
@@ -454,21 +457,21 @@
           <div class="rentals-shell">
             <header class="rentals-topbar">
               <button type="button" class="crop-nav-btn" id="equipmentRentalsBackBtn" aria-label="Back to dashboard">←</button>
-              <h2>Find Equipments</h2>
+              <h2 data-i18n="equipmentTitle">Find Equipments</h2>
               <button type="button" class="rentals-refresh-btn" id="equipmentRentalsRefreshBtn" aria-label="Refresh nearby rentals">⟳</button>
             </header>
 
             <div class="rentals-location-row">
               <p id="rentalsLocationText">📍 Bengaluru</p>
-              <button type="button" id="rentalsChangeLocationBtn">Change Location</button>
+              <button type="button" id="rentalsChangeLocationBtn" data-i18n="rentalsChangeLocation">Change Location</button>
             </div>
 
             <div class="rentals-toggle" id="rentalsToggleWrap">
-              <button type="button" class="rentals-toggle-btn active" data-filter="nearby">Near By</button>
-              <button type="button" class="rentals-toggle-btn" data-filter="all">All</button>
+              <button type="button" class="rentals-toggle-btn active" data-filter="nearby" data-i18n="rentalsNearbyFilter">Near By</button>
+              <button type="button" class="rentals-toggle-btn" data-filter="all" data-i18n="rentalsAllFilter">All</button>
             </div>
 
-            <p class="rentals-meta" id="rentalsMetaText">Loading equipment availability...</p>
+            <p class="rentals-meta" id="rentalsMetaText" data-i18n="rentalsMetaLoading">Loading equipment availability...</p>
 
             <section class="rentals-list" id="rentalsList" aria-live="polite"></section>
           </div>
@@ -480,14 +483,14 @@
       <div class="crop-modal-backdrop" id="cropModalBackdrop"></div>
       <div class="crop-modal-card" role="dialog" aria-modal="true" aria-labelledby="cropModalTitle">
         <div class="crop-modal-head">
-          <h3 id="cropModalTitle">Add Crop</h3>
+          <h3 id="cropModalTitle" data-i18n="cropModalTitle">Add Crop</h3>
           <button type="button" id="cropModalClose" class="crop-modal-close" aria-label="Close add crop form">×</button>
         </div>
 
         <form id="cropModalForm" class="crop-modal-form" novalidate>
-          <p class="crop-modal-selected">Crop: <strong id="selectedCropName">-</strong></p>
+          <p class="crop-modal-selected"><span data-i18n="cropModalCropLabel">Crop:</span> <strong id="selectedCropName">-</strong></p>
 
-          <label for="cultivationTypeInput">Cultivation Type</label>
+          <label for="cultivationTypeInput" data-i18n="cropModalTypeLabel">Cultivation Type</label>
           <select id="cultivationTypeInput" required>
             <option value="">Select type</option>
             <option value="Organic">Organic</option>
@@ -496,16 +499,16 @@
 
           <div class="crop-modal-grid">
             <div>
-              <label for="cultivationYearInput">Year</label>
+              <label for="cultivationYearInput" data-i18n="cropModalYearLabel">Year</label>
               <select id="cultivationYearInput" required></select>
             </div>
             <div>
-              <label for="cultivationAreaInput">Cultivation Area</label>
-              <input id="cultivationAreaInput" type="number" min="0.1" step="0.1" placeholder="Enter area" required />
+              <label for="cultivationAreaInput" data-i18n="cropModalAreaLabel">Cultivation Area</label>
+              <input id="cultivationAreaInput" type="number" min="0.1" step="0.1" placeholder="Enter area" data-i18n-placeholder="cropModalAreaPlaceholder" required />
             </div>
           </div>
 
-          <button type="submit" class="crop-modal-submit">ADD CROP</button>
+          <button type="submit" class="crop-modal-submit" data-i18n="cropModalAddBtn">ADD CROP</button>
         </form>
       </div>
     </div>

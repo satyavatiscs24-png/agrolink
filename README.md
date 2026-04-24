@@ -65,3 +65,32 @@ Backend notification endpoint:
 Supported language codes include:
 `en`, `hi`, `gu`, `ta`, `kn`, `te`, `ml`, `mr`, `pa`, `bn`, `as`, `mni-Mtei`, `ur`, `or`
 
+👨‍🌾 Farmer / Buyer (User)
+                    │
+                    ▼
+        📱 Frontend (Mobile/Web App)
+                    │
+        (API Requests - JSON)
+                    │
+                    ▼
+      ⚙️ Backend Server (Node.js + Express)
+     ───────────────────────────────────
+     │        Controllers              │
+     │  (Business Logic Processing)    │
+     ───────────────────────────────────
+     │            Routes               │
+     │     (/farmers, /crops, etc.)    │
+     ───────────────────────────────────
+     │            Models               │
+     │   (Farmer, Crop, Market Data)   │
+     ───────────────────────────────────
+                    │
+                    ▼
+        🗄️ Database (MongoDB)
+                    │
+                    ▼
+     🌦️ External APIs (Optional)
+   (Weather API, Market Price API)
+
+
+   
