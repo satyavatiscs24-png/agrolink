@@ -49,20 +49,24 @@
             <div class="signup-bg-shade"></div>
           </div>
 
-          <div class="signup-card">
-            <h2 data-i18n="signupJoinPlatform">Join Our Platform</h2>
-            <form id="signupForm" novalidate>
+          <div class="auth-card auth-card-signup animate-card">
+            <div class="auth-card-header">
+              <p class="auth-chip" data-i18n="signupChip">Welcome Farmer</p>
+              <h2 data-i18n="signupJoinPlatform">Join Our Platform</h2>
+              <p class="auth-subtitle" data-i18n="signupHint">Use your email or phone number to create your account.</p>
+            </div>
+
+            <form id="signupForm" class="auth-form" novalidate>
               <label for="identity" data-i18n="signupEmailLabel">Email or Phone Number</label>
               <input id="identity" name="identity" type="text" placeholder="Enter your email or phone number" data-i18n-placeholder="signupIdentityPlaceholder" required />
 
               <label for="password" data-i18n="signupPasswordLabel">Password</label>
               <input id="password" name="password" type="password" placeholder="Create a password" data-i18n-placeholder="signupPasswordPlaceholder" required />
 
-              <button class="signup-btn" type="submit" data-i18n="signupBtn">Sign Up</button>
+              <button class="auth-btn auth-btn-primary" type="submit" data-i18n="signupBtn">Sign Up</button>
             </form>
 
-            <p class="hint" data-i18n="signupHint">Use your email or phone number to create your account.</p>
-            <p class="auth-text">
+            <p class="auth-footer">
               <span data-i18n="signupAuthText">Already have an account?</span>
               <a href="#" class="auth-link" data-target-page="2" data-i18n="signupLoginLink">Login</a>
             </p>
@@ -75,21 +79,24 @@
             <div class="signup-bg-shade login-shade"></div>
           </div>
 
-          <div class="login-card">
-            <h2 data-i18n="loginTitle">Login</h2>
+          <div class="auth-card auth-card-login animate-card">
+            <div class="auth-card-header">
+              <p class="auth-chip" data-i18n="loginChip">Welcome Back</p>
+              <h2 data-i18n="loginTitle">Login</h2>
+              <p class="auth-subtitle" data-i18n="loginHelper">Login with the same details you used in sign up.</p>
+            </div>
 
-            <form id="loginForm" novalidate>
+            <form id="loginForm" class="auth-form" novalidate>
               <label for="loginIdentity" data-i18n="loginIdentityLabel">Email or Phone Number</label>
               <input id="loginIdentity" name="loginIdentity" type="text" placeholder="Enter your email or phone number" data-i18n-placeholder="loginIdentityPlaceholder" required />
 
               <label for="loginPassword" data-i18n="loginPasswordLabel">Password</label>
               <input id="loginPassword" name="loginPassword" type="password" placeholder="Enter your password" data-i18n-placeholder="loginPasswordPlaceholder" required />
 
-              <button class="login-btn" type="submit" data-i18n="loginBtn">Launch</button>
+              <button class="auth-btn auth-btn-secondary" type="submit" data-i18n="loginBtn">Launch</button>
             </form>
 
-            <p class="login-helper" data-i18n="loginHelper">Login with the same details you used in sign up.</p>
-            <p class="auth-text login-link-block">
+            <p class="auth-footer">
               <span data-i18n="loginNoAccountText">Don&apos;t have an account?</span>
               <a href="#" class="auth-link" data-target-page="1" data-i18n="loginSignUpLink">Sign Up</a>
             </p>
@@ -201,8 +208,8 @@
                   <button type="button" class="quick-tile" id="marketAdvisoryTile"><img src="assets/icon.svg" alt="Market advisory" class="quick-icon" /><span data-i18n="quickMarketAdvisory">Market Advisory</span></button>
                   <button type="button" class="quick-tile" id="agriDealersTile"><img src="assets/icon.svg" alt="Agri dealers" class="quick-icon" /><span data-i18n="quickAgriDealers">Agri Dealers</span></button>
                   <button type="button" class="quick-tile" id="agProductsTile"><img src="assets/icon.svg" alt="Ag products" class="quick-icon" /><span data-i18n="quickAgriProducts">Ag Products</span></button>
+                  <button type="button" class="quick-tile" id="pesticideProductsTile"><img src="assets/icon.svg" alt="Pesticide products" class="quick-icon" /><span data-i18n="quickPesticideProducts">Pesticide Products</span></button>
                   <button type="button" class="quick-tile" id="equipmentRentalsTile"><img src="assets/icon.svg" alt="Equipment rentals" class="quick-icon" /><span data-i18n="quickEquipmentRentals">Equipment Rentals</span></button>
-                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Pesticide products" class="quick-icon" /><span data-i18n="quickPesticideProducts">Pesticide Products</span></button>
                 </div>
               </section>
 
@@ -298,8 +305,8 @@
             <header class="crop-topbar">
               <button type="button" class="crop-nav-btn" id="cropManagementBackBtn" aria-label="Back to dashboard">←</button>
               <div class="crop-topbar-title-wrap">
-                <p class="crop-tier">Free Subscriber</p>
-                <h2>Crop Management</h2>
+                <p class="crop-tier" data-i18n="dashboardTier">Free Subscriber</p>
+                <h2 data-i18n="cropManagementTitle">Crop Management</h2>
               </div>
               <div class="crop-topbar-actions" aria-hidden="true">⌕ 🛒 ⌂</div>
             </header>
@@ -453,6 +460,68 @@
           </div>
         </section>
 
+        <section class="page page-pesticides" aria-label="Pesticide products">
+          <div class="pesticides-shell">
+            <header class="pesticides-topbar">
+              <button type="button" class="crop-nav-btn" id="pesticidesBackBtn" aria-label="Back to dashboard">←</button>
+              <div>
+                <p class="pesticides-kicker" data-i18n="pesticideKicker">For leaf spot disease</p>
+                <h2 data-i18n="pesticideTitle">Recommended pesticide</h2>
+              </div>
+            </header>
+
+            <div class="pesticides-controls">
+              <div class="pesticide-field">
+                <label for="pesticideCropSelect" data-i18n="pesticideCropLabel">Select Crop</label>
+                <select id="pesticideCropSelect"></select>
+              </div>
+              <div class="pesticide-field">
+                <label for="pesticideDiseaseSelect" data-i18n="pesticideDiseaseLabel">Select Disease</label>
+                <select id="pesticideDiseaseSelect"></select>
+              </div>
+              <button type="button" class="pesticide-action-btn" id="pesticideSearchBtn" disabled data-i18n="pesticideSearchBtn">Next</button>
+            </div>
+
+            <div class="pesticide-summary" id="pesticideSummary">
+              <div class="dash-card-head">
+                <h3 data-i18n="pesticideInstructionsHeading">Usage Instructions</h3>
+              </div>
+              <p id="pesticideInstructionsText" class="pesticide-text">Choose a crop and disease to see guidance.</p>
+
+              <div class="dash-card-head">
+                <h3 data-i18n="pesticideSafetyHeading">Safety Tips</h3>
+              </div>
+              <p id="pesticideSafetyText" class="pesticide-text">Handle pesticides with protective gloves and masks.</p>
+            </div>
+
+            <div class="pesticide-results" id="pesticideResultsWrap">
+              <div class="dash-card-head pesticide-list-head">
+                <h3 data-i18n="pesticideListTitle">Pesticide List</h3>
+                <p data-i18n="pesticideListIntro">Click a pesticide to buy, book, or add to your farm.</p>
+              </div>
+
+              <div class="pesticide-actions-row">
+                <input id="pesticideSearchInput" type="text" placeholder="Search pesticide" data-i18n-placeholder="pesticideSearchPlaceholder" aria-label="Search pesticide" />
+              </div>
+
+              <div class="pesticide-list" id="pesticideList"></div>
+
+              <section class="dash-card pesticide-add-card">
+                <div class="dash-card-head">
+                  <h4 data-i18n="pesticideAddHeading">Add Custom Pesticide</h4>
+                </div>
+                <form id="pesticideForm" class="entry-form" novalidate>
+                  <input id="pesticideNameInput" type="text" placeholder="Pesticide name" data-i18n-placeholder="pesticideNamePlaceholder" required />
+                  <input id="pesticideTypeInput" type="text" placeholder="Type (e.g. Fungicide)" data-i18n-placeholder="pesticideTypePlaceholder" required />
+                  <input id="pesticideManufacturerInput" type="text" placeholder="Manufacturer" data-i18n-placeholder="pesticideManufacturerPlaceholder" required />
+                  <input id="pesticidePriceInput" type="number" placeholder="Price" data-i18n-placeholder="pesticidePricePlaceholder" min="1" required />
+                  <button type="submit" data-i18n="pesticideAddBtn">Add Pesticide</button>
+                </form>
+              </section>
+            </div>
+          </div>
+        </section>
+
         <section class="page page-equipment-rentals" aria-label="Equipment Rentals">
           <div class="rentals-shell">
             <header class="rentals-topbar">
@@ -474,6 +543,88 @@
             <p class="rentals-meta" id="rentalsMetaText" data-i18n="rentalsMetaLoading">Loading equipment availability...</p>
 
             <section class="rentals-list" id="rentalsList" aria-live="polite"></section>
+          </div>
+        </section>
+
+        <section class="page page-profile" aria-label="My Profile">
+          <div class="profile-shell">
+            <header class="page-topbar">
+              <button type="button" class="crop-nav-btn" id="profileBackBtn" aria-label="Back to dashboard">←</button>
+              <h2 data-i18n="profileTitle">My Profile</h2>
+            </header>
+
+            <div class="profile-card">
+              <p class="page-subtitle" data-i18n="profileSubtitle">View or edit your personal details</p>
+              <div class="profile-avatar-preview" id="profilePhotoPreview">👩‍🌾</div>
+              <form id="profileForm" class="profile-form" novalidate>
+                <label for="profileNameInput" data-i18n="profileNameLabel">Name</label>
+                <input id="profileNameInput" type="text" placeholder="Your name" />
+
+                <label for="profileEmailInput" data-i18n="profileEmailLabel">Email</label>
+                <input id="profileEmailInput" type="email" placeholder="you@example.com" />
+
+                <label for="profilePasswordInput" data-i18n="profilePasswordLabel">Password</label>
+                <input id="profilePasswordInput" type="password" placeholder="••••••••" />
+
+                <label for="profilePhotoInput" data-i18n="profilePhotoLabel">Profile Photo</label>
+                <input id="profilePhotoInput" type="file" accept="image/*" />
+
+                <button type="submit" class="page-action-btn" data-i18n="profileSaveBtn">Save Profile</button>
+              </form>
+              <p class="page-help-text" data-i18n="profileHelpText">Use this when you want to update your account info</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="page page-farm-settings" aria-label="Farm Settings">
+          <div class="settings-shell">
+            <header class="page-topbar">
+              <button type="button" class="crop-nav-btn" id="settingsBackBtn" aria-label="Back to dashboard">←</button>
+              <h2 data-i18n="settingsTitle">Farm Settings</h2>
+            </header>
+
+            <div class="settings-card">
+              <p class="page-subtitle" data-i18n="settingsSubtitle">Configure your farm-related preferences</p>
+              <form id="settingsForm" class="settings-form" novalidate>
+                <label for="preferredCropType" data-i18n="settingsCropTypeLabel">Preferred crop type</label>
+                <input id="preferredCropType" type="text" placeholder="Example: Vegetable" />
+
+                <label for="landSizeInput" data-i18n="settingsLandSizeLabel">Land size (acres)</label>
+                <input id="landSizeInput" type="number" min="0" step="0.1" placeholder="e.g. 2.5" />
+
+                <label for="irrigationInput" data-i18n="settingsIrrigationLabel">Irrigation settings</label>
+                <input id="irrigationInput" type="text" placeholder="Drip, sprinkler, rainfed" />
+
+                <button type="submit" class="page-action-btn" data-i18n="settingsSaveBtn">Save Settings</button>
+              </form>
+              <p class="page-help-text" data-i18n="settingsHelpText">Use this to customize how your farm data works in the app</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="page page-saved-reports" aria-label="Saved Reports">
+          <div class="reports-shell">
+            <header class="page-topbar">
+              <button type="button" class="crop-nav-btn" id="reportsBackBtn" aria-label="Back to dashboard">←</button>
+              <h2 data-i18n="reportsTitle">Saved Reports</h2>
+            </header>
+
+            <div class="reports-card">
+              <p class="page-subtitle" data-i18n="reportsSubtitle">View reports you previously saved</p>
+              <div class="report-list">
+                <article class="report-item">
+                  <h3 data-i18n="reportsCardHeading">Crop yield report</h3>
+                  <p>Tomato yield and pest control summary for last season.</p>
+                  <button type="button" class="report-download-btn" data-i18n="reportsDownloadBtn">Download</button>
+                </article>
+                <article class="report-item">
+                  <h3 data-i18n="reportsCardHeading">Crop yield report</h3>
+                  <p>Harvest history and market price analytics.</p>
+                  <button type="button" class="report-download-btn" data-i18n="reportsDownloadBtn">Download</button>
+                </article>
+              </div>
+              <p class="page-help-text" data-i18n="reportsHelpText">Use this to check past data or download reports</p>
+            </div>
           </div>
         </section>
       </div>

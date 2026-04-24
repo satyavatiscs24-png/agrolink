@@ -878,13 +878,27 @@ body {
 .drawer-link {
   width: 100%;
   text-align: left;
-  margin-bottom: 0.5rem;
-  border: 1px solid rgba(20, 62, 34, 0.14);
-  border-radius: 12px;
-  padding: 0.75rem;
-  background: #f3f8ef;
-  color: #1b3524;
+  margin-bottom: 0.65rem;
+  border: none;
+  border-radius: 16px;
+  padding: 0.95rem 0.9rem;
+  background: linear-gradient(135deg, #eef7ec, #d6ead4);
+  color: #134223;
   cursor: pointer;
+  box-shadow: 0 14px 26px rgba(16, 58, 31, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+}
+
+.drawer-link::after {
+  content: "→";
+  opacity: 0.65;
+}
+
+.drawer-link:hover {
+  transform: translateX(2px);
 }
 
 .drawer-close {
@@ -1116,36 +1130,45 @@ body {
 .quick-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.4rem;
+  gap: 0.55rem;
 }
 
 .quick-tile {
-  border: 1px solid rgba(16, 60, 34, 0.14);
-  background: #edf5ee;
-  color: #172e1d;
-  border-radius: 9px;
-  padding: 0.7rem 0.55rem;
-  font-size: 0.82rem;
-  font-weight: 700;
+  border: none;
+  background: linear-gradient(145deg, #f6fbf7, #dff3e6);
+  color: #13371f;
+  border-radius: 18px;
+  padding: 0.9rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 800;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
   text-align: left;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  box-shadow: 0 16px 28px rgba(18, 67, 37, 0.08);
+}
+
+.quick-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 32px rgba(18, 67, 37, 0.14);
+  background: linear-gradient(145deg, #e8f7ea, #d4efdb);
 }
 
 .quick-icon {
-  width: 26px;
-  height: 26px;
-  border-radius: 6px;
-  border: 1px solid rgba(17, 56, 31, 0.14);
-  background: #ffffff;
-  flex-shrink: 0;
-  object-fit: cover;
+  width: 36px;
+  height: 36px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #f9fff8, #d8f0da);
+  box-shadow: inset 0 0 0 1px rgba(18, 67, 37, 0.08);
+  font-size: 1rem;
 }
 
 .quick-tile span {
-  line-height: 1.2;
+  line-height: 1.3;
 }
 
 .chart-wrap {
@@ -1346,13 +1369,14 @@ body {
 
 .crop-hero-card {
   margin: 0.8rem;
-  background: #ece4ef;
-  border-radius: 18px;
-  border: 1px solid rgba(52, 52, 52, 0.1);
+  background: linear-gradient(145deg, #f1f7f3, #e7f0ea);
+  border-radius: 22px;
+  border: 1px solid rgba(37, 83, 52, 0.12);
   display: flex;
   align-items: center;
   gap: 0.9rem;
   padding: 1rem;
+  box-shadow: 0 14px 26px rgba(30, 91, 58, 0.08);
 }
 
 .crop-hero-illustration {
@@ -1370,12 +1394,15 @@ body {
   flex: 1;
   border: none;
   border-radius: 999px;
-  padding: 1rem;
-  background: #1fb07f;
-  color: #e8fff7;
-  font-size: 2rem;
+  padding: 0.95rem 1.2rem;
+  background: linear-gradient(135deg, #2d9f6a, #1f7f53);
+  color: #f7fff7;
+  font-size: 1.2rem;
   font-family: "DM Serif Display", serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
   cursor: pointer;
+  min-height: 52px;
 }
 
 .added-crops-section {
@@ -1455,6 +1482,124 @@ body {
   display: grid;
   gap: 0.5rem;
   padding: 0 0.75rem 0.8rem;
+}
+
+.page-profile,
+.page-farm-settings,
+.page-saved-reports {
+  background: #eef7ee;
+}
+
+.profile-shell,
+.settings-shell,
+.reports-shell {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-topbar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.9rem;
+  background: linear-gradient(90deg, #1d7c55, #2a9a6c);
+  color: #f3fffb;
+}
+
+.page-topbar h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-family: "DM Serif Display", serif;
+}
+
+.profile-card,
+.settings-card,
+.reports-card {
+  margin: 1rem 0.9rem 0.9rem;
+  background: #ffffff;
+  border-radius: 22px;
+  border: 1px solid rgba(33, 99, 56, 0.14);
+  padding: 1rem;
+  box-shadow: 0 14px 28px rgba(18, 69, 36, 0.08);
+}
+
+.page-subtitle {
+  margin: 0 0 1rem;
+  color: #23513c;
+  line-height: 1.5;
+}
+
+.profile-avatar-preview {
+  width: 108px;
+  height: 108px;
+  border-radius: 22px;
+  display: grid;
+  place-items: center;
+  font-size: 2.1rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(145deg, #f6fbf8, #e3f1e8);
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(22, 67, 38, 0.12);
+}
+
+.profile-form,
+.settings-form {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.profile-form label,
+.settings-form label {
+  display: block;
+  font-weight: 700;
+  color: #264b33;
+}
+
+.profile-form input,
+.settings-form input {
+  width: 100%;
+  border: 1px solid rgba(32, 88, 42, 0.18);
+  border-radius: 12px;
+  padding: 0.85rem 0.95rem;
+  background: #f8faf7;
+  font: inherit;
+}
+
+.page-action-btn,
+.report-download-btn {
+  border: none;
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  background: linear-gradient(135deg, #2c8e63, #1f7a52);
+  color: #f5fff7;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.report-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.report-item {
+  border-radius: 18px;
+  background: #f8fff3;
+  border: 1px solid rgba(22, 73, 37, 0.12);
+  padding: 1rem;
+}
+
+.report-item h3 {
+  margin: 0 0 0.45rem;
+}
+
+.page-help-text {
+  margin: 1rem 0 0;
+  color: #435f52;
+  font-size: 0.95rem;
 }
 
 .crop-select-item {
@@ -2337,6 +2482,168 @@ body {
   background:
     linear-gradient(165deg, #f2f5f3 0%, #f7f9f8 45%, #eef3f0 100%),
     radial-gradient(circle at 18% 6%, rgba(17, 135, 109, 0.14), transparent 50%);
+}
+
+.page-pesticides {
+  background:
+    linear-gradient(165deg, #f9f7ef 0%, #f5f6f3 45%, #eef0ea 100%),
+    radial-gradient(circle at 20% 12%, rgba(39, 90, 61, 0.12), transparent 52%);
+}
+
+.pesticides-shell {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pesticides-topbar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  align-items: center;
+  padding: 0.7rem 0.75rem;
+  background: linear-gradient(90deg, #17684d, #1f8d64);
+  border-radius: 18px;
+  color: #f4fff8;
+}
+
+.pesticides-topbar h2 {
+  margin: 0;
+  font-size: 1.32rem;
+  font-family: "DM Serif Display", serif;
+}
+
+.pesticides-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding: 0 0.75rem;
+}
+
+.pesticide-field {
+  display: grid;
+  gap: 0.38rem;
+}
+
+.pesticide-field select,
+.pesticide-actions-row input {
+  width: 100%;
+  border: 1px solid rgba(37, 88, 51, 0.18);
+  border-radius: 14px;
+  padding: 0.85rem 0.95rem;
+  background: #ffffff;
+  color: #153f2d;
+}
+
+.pesticide-action-btn {
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(90deg, #1d8f62, #29b673);
+  color: #fbfff8;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.95rem 1rem;
+}
+
+.pesticide-summary {
+  display: grid;
+  gap: 0.8rem;
+  padding: 0 0.75rem;
+}
+
+.pesticide-text {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid rgba(37, 88, 51, 0.12);
+  color: #233e2f;
+  line-height: 1.6;
+}
+
+.pesticide-results {
+  display: grid;
+  gap: 0.75rem;
+  flex: 1;
+  padding: 0 0.75rem 0.75rem;
+}
+
+.pesticide-actions-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.pesticide-actions-row input {
+  flex: 1;
+}
+
+.pesticide-list {
+  display: grid;
+  gap: 0.75rem;
+  max-height: min(48vh, 600px);
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.pesticide-card {
+  padding: 1rem;
+  overflow: hidden;
+  border-radius: 18px;
+  background: linear-gradient(160deg, #ffffff, #eef5eb);
+  border: 1px solid rgba(24, 90, 52, 0.12);
+}
+
+.pesticide-card-image {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid rgba(24, 90, 52, 0.12);
+}
+
+.pesticide-card h3 {
+  margin: 0.8rem 0 0.55rem;
+}
+
+.pesticide-card .entry-text {
+  margin: 0.65rem 0 0;
+  color: #2f4f3d;
+}
+
+.pesticide-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.pesticide-buy-btn,
+.pesticide-book-btn,
+.pesticide-save-btn {
+  border: none;
+  border-radius: 12px;
+  background: #2a8b66;
+  color: #fbfff8;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.65rem 0.95rem;
+}
+
+.pesticide-book-btn {
+  background: #3f8c76;
+}
+
+.pesticide-save-btn {
+  background: #4ca77c;
+}
+
+.pesticide-add-card {
+  padding: 1rem;
+}
+
+.pesticide-add-card .entry-form input {
+  margin-bottom: 0.65rem;
 }
 
 .rentals-shell {

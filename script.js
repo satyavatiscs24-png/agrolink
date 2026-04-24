@@ -28,7 +28,7 @@ let activePage = 0;
 let touchStartX = 0;
 let touchDeltaX = 0;
 
-const pageCount = 11;
+const pageCount = 15;
 
 activePage = shouldRestorePage ? readStoredPage() : 0;
 
@@ -158,6 +158,35 @@ const EN_DASHBOARD_TEXTS = {
   mandiPricesTitle: "Mandi Prices",
   chartNote: "Chart updates automatically from your entered mandi prices.",
   cropNamePlaceholder: "Crop name",
+  cropNameBrinjal: "Brinjal",
+  cropNameChillies: "Chillies",
+  cropNameCitrus: "Citrus",
+  cropNameCotton: "Cotton",
+  cropNameGroundnut: "Groundnut",
+  cropNameMango: "Mango",
+  cropNameOkra: "Okra",
+  cropNamePaddy: "Paddy",
+  cropNamePomegranate: "Pomegranate",
+  cropNameBanana: "Banana",
+  cropNameTomato: "Tomato",
+  cropNameCarrot: "Carrot",
+  cropNameCabbage: "Cabbage",
+  cropNamePotato: "Potato",
+  cropNameOnion: "Onion",
+  cropNameMaize: "Maize",
+  cropNameWheat: "Wheat",
+  cropNameSugarcane: "Sugarcane",
+  cropNameTurmeric: "Turmeric",
+  cropNameGinger: "Ginger",
+  cropNameSoybean: "Soybean",
+  cropNameSunflower: "Sunflower",
+  cropNameSesame: "Sesame",
+  cropNameMillet: "Millet",
+  cropNameRagi: "Ragi",
+  cropNameGreenGram: "Green Gram",
+  cropNameBlackGram: "Black Gram",
+  cropNamePapaya: "Papaya",
+  cropNameGuava: "Guava",
   marketPlaceholder: "Market or district",
   maxPricePlaceholder: "Max price",
   avgPricePlaceholder: "Avg price",
@@ -177,11 +206,57 @@ const EN_DASHBOARD_TEXTS = {
   productImageUrlPlaceholder: "Product image URL (optional)",
   addProductBtn: "Add Product",
   emptyProducts: "No products yet. Add the first product card.",
+  cropManagementTitle: "Crop Management",
+  profileTitle: "My Profile",
+  profileSubtitle: "View or edit your personal details",
+  profileNameLabel: "Name",
+  profileEmailLabel: "Email",
+  profilePasswordLabel: "Password",
+  profilePhotoLabel: "Profile Photo",
+  profileSaveBtn: "Save Profile",
+  profileHelpText: "Use this when you want to update your account info",
+  settingsTitle: "Farm Settings",
+  settingsSubtitle: "Configure your farm-related preferences",
+  settingsCropTypeLabel: "Preferred crop type",
+  settingsLandSizeLabel: "Land size (acres)",
+  settingsIrrigationLabel: "Irrigation settings",
+  settingsSaveBtn: "Save Settings",
+  settingsHelpText: "Use this to customize how your farm data works in the app",
+  reportsTitle: "Saved Reports",
+  reportsSubtitle: "View reports you previously saved",
+  reportsCardHeading: "Crop yield report",
+  reportsDownloadBtn: "Download",
+  reportsHelpText: "Use this to check past data or download reports",
   aboutSupportTitle: "About and Support",
   supportAboutUs: "About Us",
   supportContactUs: "Contact Us",
   supportFeedback: "Feedback",
   supportNotifications: "Notifications",
+  pesticideKicker: "For leaf spot disease",
+  pesticideTitle: "Recommended pesticide",
+  pesticideCropLabel: "Select Crop",
+  pesticideDiseaseLabel: "Select Disease",
+  pesticideSearchBtn: "Next",
+  pesticideInstructionsHeading: "Usage Instructions",
+  pesticideSafetyHeading: "Safety Tips",
+  pesticideListTitle: "Pesticide List",
+  pesticideListIntro: "Click a pesticide to buy, book, or add to your farm.",
+  pesticideSearchPlaceholder: "Search pesticide",
+  pesticideAddHeading: "Add Custom Pesticide",
+  pesticideNamePlaceholder: "Pesticide name",
+  pesticideTypePlaceholder: "Type (e.g. Fungicide)",
+  pesticideManufacturerPlaceholder: "Manufacturer",
+  pesticidePricePlaceholder: "Price",
+  pesticideAddBtn: "Add Pesticide",
+  pesticideBuyButton: "Buy",
+  pesticideBookButton: "Book",
+  pesticideSaveButton: "Save",
+  pesticideBookedLabel: "Booked ✓",
+  pesticideManufacturerLabel: "Manufacturer",
+  pesticideEmptyList: "No pesticides found. Add a new item.",
+  pesticideDefaultInstruction: "Choose a crop and disease to reveal safe pesticide guidance.",
+  pesticideDefaultSafety: "Use protective gloves, masks, and avoid contact with skin or eyes when handling pesticides.",
+  pesticideDefaultDetail: "Follow label instructions and safety precautions.",
   navCropInfo: "Crop Info",
   navAdvisory: "Advisory",
   navPesticides: "Pesticides",
@@ -364,6 +439,7 @@ const cropManagementTile = document.getElementById("cropManagementTile");
 const marketAdvisoryTile = document.getElementById("marketAdvisoryTile");
 const agriDealersTile = document.getElementById("agriDealersTile");
 const agProductsTile = document.getElementById("agProductsTile");
+const pesticideProductsTile = document.getElementById("pesticideProductsTile");
 const equipmentRentalsTile = document.getElementById("equipmentRentalsTile");
 const cropManagementBackBtn = document.getElementById("cropManagementBackBtn");
 const goToCropSelectionBtn = document.getElementById("goToCropSelectionBtn");
@@ -411,6 +487,27 @@ const rentalsChangeLocationBtn = document.getElementById("rentalsChangeLocationB
 const rentalsToggleWrap = document.getElementById("rentalsToggleWrap");
 const rentalsMetaText = document.getElementById("rentalsMetaText");
 const rentalsList = document.getElementById("rentalsList");
+const profileBackBtn = document.getElementById("profileBackBtn");
+const settingsBackBtn = document.getElementById("settingsBackBtn");
+const reportsBackBtn = document.getElementById("reportsBackBtn");
+const profilePhotoInput = document.getElementById("profilePhotoInput");
+const profilePhotoPreview = document.getElementById("profilePhotoPreview");
+const profileForm = document.getElementById("profileForm");
+const settingsForm = document.getElementById("settingsForm");
+const pesticidesBackBtn = document.getElementById("pesticidesBackBtn");
+const pesticideCropSelect = document.getElementById("pesticideCropSelect");
+const pesticideDiseaseSelect = document.getElementById("pesticideDiseaseSelect");
+const pesticideSearchBtn = document.getElementById("pesticideSearchBtn");
+const pesticideInstructionsText = document.getElementById("pesticideInstructionsText");
+const pesticideSafetyText = document.getElementById("pesticideSafetyText");
+const pesticideResultsWrap = document.getElementById("pesticideResultsWrap");
+const pesticideSearchInput = document.getElementById("pesticideSearchInput");
+const pesticideList = document.getElementById("pesticideList");
+const pesticideForm = document.getElementById("pesticideForm");
+const pesticideNameInput = document.getElementById("pesticideNameInput");
+const pesticideTypeInput = document.getElementById("pesticideTypeInput");
+const pesticideManufacturerInput = document.getElementById("pesticideManufacturerInput");
+const pesticidePriceInput = document.getElementById("pesticidePriceInput");
 
 let dashboardBootstrapped = false;
 
@@ -446,17 +543,27 @@ if (dashboardDrawerOverlay) {
   dashboardDrawerOverlay.addEventListener("click", () => toggleDrawer(false));
 }
 
-const clearEmptyNote = (container) => {
-  const emptyNode = container.querySelector(".empty-note");
-  if (emptyNode) {
-    emptyNode.remove();
-  }
-};
+  document.querySelectorAll(".drawer-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      const targetKey = link.getAttribute("data-i18n");
+      toggleDrawer(false);
+      if (targetKey === "drawerMyProfile") {
+        goToPage(12);
+      } else if (targetKey === "drawerFarmSettings") {
+        goToPage(13);
+      } else if (targetKey === "drawerSavedReports") {
+        goToPage(14);
+      } else if (targetKey === "drawerLanguage") {
+        goToPage(4);
+      }
+    });
+  });
 
 const storageKeys = {
   prices: "agrolink_dashboard_prices",
   posts: "agrolink_dashboard_posts",
   products: "agrolink_dashboard_products",
+  pesticides: "agrolink_dashboard_pesticides",
   notifications: "agrolink_live_notifications",
   crops: "agrolink_added_crops",
   agProductQuantities: "agrolink_ag_product_quantities",
@@ -467,39 +574,244 @@ const dashboardData = {
   posts: [],
   products: [],
   crops: [],
+  pesticides: [],
 };
 
-const cropCatalog = [
-  "Brinjal",
-  "Chillies",
-  "Citrus",
-  "Cotton",
-  "Groundnut",
-  "Mango",
-  "Okra",
-  "Paddy",
-  "Pomegranate",
-  "Banana",
-  "Tomato",
-  "Onion",
-  "Potato",
-  "Maize",
-  "Wheat",
-  "Sugarcane",
-  "Turmeric",
-  "Ginger",
-  "Soybean",
-  "Sunflower",
-  "Sesame",
-  "Millet",
-  "Ragi",
-  "Green Gram",
-  "Black Gram",
-  "Cabbage",
-  "Cauliflower",
-  "Carrot",
-  "Papaya",
-  "Guava",
+const CROP_CATALOG = [
+  { key: "cropNameBrinjal", value: "Brinjal" },
+  { key: "cropNameChillies", value: "Chillies" },
+  { key: "cropNameCitrus", value: "Citrus" },
+  { key: "cropNameCotton", value: "Cotton" },
+  { key: "cropNameGroundnut", value: "Groundnut" },
+  { key: "cropNameMango", value: "Mango" },
+  { key: "cropNameOkra", value: "Okra" },
+  { key: "cropNamePaddy", value: "Paddy" },
+  { key: "cropNamePomegranate", value: "Pomegranate" },
+  { key: "cropNameBanana", value: "Banana" },
+  { key: "cropNameTomato", value: "Tomato" },
+  { key: "cropNameCarrot", value: "Carrot" },
+  { key: "cropNameCabbage", value: "Cabbage" },
+  { key: "cropNamePotato", value: "Potato" },
+  { key: "cropNameOnion", value: "Onion" },
+  { key: "cropNameMaize", value: "Maize" },
+  { key: "cropNameWheat", value: "Wheat" },
+  { key: "cropNameSugarcane", value: "Sugarcane" },
+  { key: "cropNameTurmeric", value: "Turmeric" },
+  { key: "cropNameGinger", value: "Ginger" },
+  { key: "cropNameSoybean", value: "Soybean" },
+  { key: "cropNameSunflower", value: "Sunflower" },
+  { key: "cropNameSesame", value: "Sesame" },
+  { key: "cropNameMillet", value: "Millet" },
+  { key: "cropNameRagi", value: "Ragi" },
+  { key: "cropNameGreenGram", value: "Green Gram" },
+  { key: "cropNameBlackGram", value: "Black Gram" },
+  { key: "cropNamePapaya", value: "Papaya" },
+  { key: "cropNameGuava", value: "Guava" },
+];
+
+const PESTICIDE_CROPS = ["Tomato", "Potato", "Paddy", "Brinjal"];
+const PESTICIDE_DISEASES = ["Leaf Spot", "Blight", "Rust", "Mildew"];
+const PESTICIDE_DEFAULT_ITEMS = [
+  {
+    id: "leafspot-fungex",
+    name: "Fungex Active",
+    type: "Fungicide",
+    manufacturer: "AgroCare Labs",
+    price: 260,
+    imageUrl: "https://images.unsplash.com/photo-1513791057432-8fb03b50dc5a?auto=format&fit=crop&w=800&q=80",
+    detail: "Mix 15ml in 1 litre of water and spray evenly on affected leaves.",
+    status: "available",
+  },
+  {
+    id: "blast-guard",
+    name: "Blast Guard",
+    type: "Fungicide",
+    manufacturer: "CropSafe",
+    price: 320,
+    imageUrl: "https://images.unsplash.com/photo-1524594171929-2b2c24e67e4b?auto=format&fit=crop&w=800&q=80",
+    detail: "Apply at early disease stage. Avoid spraying under strong sunlight.",
+    status: "available",
+  },
+  {
+    id: "rust-stop",
+    name: "Rust Stop",
+    type: "Fungicide",
+    manufacturer: "GreenShield",
+    price: 285,
+    imageUrl: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80",
+    detail: "Use in a protective mask. Do not exceed recommended dosage.",
+    status: "available",
+  },
+  {
+    id: "mildew-clear",
+    name: "Mildew Clear",
+    type: "Fungicide",
+    manufacturer: "EcoAgri",
+    price: 240,
+    imageUrl: "https://images.unsplash.com/photo-1524594171929-2b2c24e67e4b?auto=format&fit=crop&w=800&q=80",
+    detail: "Protect crops with a second spray after 7 days if needed.",
+    status: "available",
+  },
+  {
+    id: "green-guard",
+    name: "Green Guard",
+    type: "Herbicide",
+    manufacturer: "FieldWorks",
+    price: 295,
+    imageUrl: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80",
+    detail: "Best for controlling broadleaf weeds in paddy and tomato fields.",
+    status: "available",
+  },
+  {
+    id: "blade-shield",
+    name: "Blade Shield",
+    type: "Insecticide",
+    manufacturer: "FarmShield",
+    price: 340,
+    imageUrl: "https://images.unsplash.com/photo-1513791057432-8fb03b50dc5a?auto=format&fit=crop&w=800&q=80",
+    detail: "Spray early in the morning on underside of leaves against pests.",
+    status: "available",
+  },
+  {
+    id: "crop-defender",
+    name: "Crop Defender",
+    type: "Fungicide",
+    manufacturer: "EcoGrow",
+    price: 310,
+    imageUrl: "https://images.unsplash.com/photo-1524594171929-2b2c24e67e4b?auto=format&fit=crop&w=800&q=80",
+    detail: "Recommended for late blight and leaf spot management.",
+    status: "available",
+  },
+  {
+    id: "pest-protect",
+    name: "Pest Protect",
+    type: "Insecticide",
+    manufacturer: "AgriPulse",
+    price: 275,
+    imageUrl: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80",
+    detail: "Use with protective gear and sweep spray across crop rows.",
+    status: "available",
+  },
+  {
+    id: "leaf-sentry",
+    name: "Leaf Sentry",
+    type: "Fungicide",
+    manufacturer: "GreenShield",
+    price: 330,
+    imageUrl: "https://images.unsplash.com/photo-1513791057432-8fb03b50dc5a?auto=format&fit=crop&w=800&q=80",
+    detail: "Works well on rust and mildew in potato and brinjal crops.",
+    status: "available",
+  },
+  {
+    id: "crop-sure",
+    name: "Crop Sure",
+    type: "Herbicide",
+    manufacturer: "AgroCare Labs",
+    price: 225,
+    imageUrl: "https://images.unsplash.com/photo-1524594171929-2b2c24e67e4b?auto=format&fit=crop&w=800&q=80",
+    detail: "Pre-emergence herbicide for early crop establishment.",
+    status: "available",
+  },
+  {
+    id: "field-armor",
+    name: "Field Armor",
+    type: "Insecticide",
+    manufacturer: "CropSafe",
+    price: 355,
+    imageUrl: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80",
+    detail: "Apply in a protective mask at the first sign of infestation.",
+    status: "available",
+  },
+  {
+    id: "safegrow",
+    name: "SafeGrow",
+    type: "Fungicide",
+    manufacturer: "EcoAgri",
+    price: 300,
+    imageUrl: "https://images.unsplash.com/photo-1513791057432-8fb03b50dc5a?auto=format&fit=crop&w=800&q=80",
+    detail: "Low odor formula for seedling and flowering stages.",
+    status: "available",
+  },
+  {
+    id: "weed-block",
+    name: "Weed Block",
+    type: "Herbicide",
+    manufacturer: "AgriPulse",
+    price: 245,
+    imageUrl: "https://images.unsplash.com/photo-1524594171929-2b2c24e67e4b?auto=format&fit=crop&w=800&q=80",
+    detail: "Controls grasses and broadleaf weeds in turmeric and paddy.",
+    status: "available",
+  },
+  {
+    id: "spore-guard",
+    name: "Spore Guard",
+    type: "Fungicide",
+    manufacturer: "FieldWorks",
+    price: 360,
+    imageUrl: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80",
+    detail: "Prevents fungal spore germination and protects leafy crops.",
+    status: "available",
+  },
+  {
+    id: "pest-shield",
+    name: "Pest Shield",
+    type: "Insecticide",
+    manufacturer: "AgroCare Labs",
+    price: 310,
+    imageUrl: "https://images.unsplash.com/photo-1513791057432-8fb03b50dc5a?auto=format&fit=crop&w=800&q=80",
+    detail: "Suitable for tomato and chilli pest control.",
+    status: "available",
+  },
+  {
+    id: "green-guard-plus",
+    name: "Green Guard Plus",
+    type: "Insecticide",
+    manufacturer: "GreenShield",
+    price: 330,
+    imageUrl: "https://images.unsplash.com/photo-1524594171929-2b2c24e67e4b?auto=format&fit=crop&w=800&q=80",
+    detail: "Ideal for heavy pest pressure in brinjal and potato.",
+    status: "available",
+  },
+  {
+    id: "root-save",
+    name: "Root Save",
+    type: "Fungicide",
+    manufacturer: "CropSafe",
+    price: 280,
+    imageUrl: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80",
+    detail: "Controls root and stem rot in paddy and turmeric.",
+    status: "available",
+  },
+  {
+    id: "eco-shield",
+    name: "Eco Shield",
+    type: "Fungicide",
+    manufacturer: "EcoAgri",
+    price: 290,
+    imageUrl: "https://images.unsplash.com/photo-1513791057432-8fb03b50dc5a?auto=format&fit=crop&w=800&q=80",
+    detail: "Biodegradable formulation for safer use around vegetables.",
+    status: "available",
+  },
+  {
+    id: "crop-care",
+    name: "Crop Care",
+    type: "Herbicide",
+    manufacturer: "FieldWorks",
+    price: 265,
+    imageUrl: "https://images.unsplash.com/photo-1524594171929-2b2c24e67e4b?auto=format&fit=crop&w=800&q=80",
+    detail: "Effective against weeds during early growth stages.",
+    status: "available",
+  },
+  {
+    id: "spray-guard",
+    name: "Spray Guard",
+    type: "Insecticide",
+    manufacturer: "AgroCare Labs",
+    price: 325,
+    imageUrl: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80",
+    detail: "Use for nighttime pest control on foliage and fruits.",
+    status: "available",
+  },
 ];
 
 let activeSelectedCrop = "";
@@ -567,7 +879,7 @@ const STATE_CENTROIDS = {
   "West Bengal": { lat: 22.99, lon: 87.85 },
 };
 
-const MARKET_CROPS_30 = cropCatalog.slice(0, 30);
+const MARKET_CROPS_30 = CROP_CATALOG.slice(0, 30);
 const DISTRICT_TAGS = ["Central", "North", "South", "East", "West", "Rural"];
 const DISTRICT_OFFSETS = [
   { lat: 0, lon: 0 },
@@ -648,8 +960,8 @@ const buildMarketPayload = (stateName, cropName) => {
 };
 
 const MARKET_DATA = INDIA_STATES_28.reduce((acc, stateName) => {
-  acc[stateName] = MARKET_CROPS_30.reduce((cropAcc, cropName) => {
-    cropAcc[cropName] = buildMarketPayload(stateName, cropName);
+  acc[stateName] = MARKET_CROPS_30.reduce((cropAcc, crop) => {
+    cropAcc[crop.value] = buildMarketPayload(stateName, crop.value);
     return cropAcc;
   }, {});
   return acc;
@@ -1076,6 +1388,7 @@ const saveDashboardData = () => {
   localStorage.setItem(storageKeys.prices, JSON.stringify(dashboardData.prices));
   localStorage.setItem(storageKeys.posts, JSON.stringify(dashboardData.posts));
   localStorage.setItem(storageKeys.products, JSON.stringify(dashboardData.products));
+  localStorage.setItem(storageKeys.pesticides, JSON.stringify(dashboardData.pesticides));
   localStorage.setItem(storageKeys.crops, JSON.stringify(dashboardData.crops));
 };
 
@@ -1295,10 +1608,10 @@ const seedDashboardData = () => {
 
   if (!dashboardData.crops.length) {
     dashboardData.crops = [
-      { cropName: "Brinjal", cultivationType: "Organic", year: "2025", area: "1.2" },
-      { cropName: "Banana", cultivationType: "Inorganic", year: "2024", area: "0.8" },
-      { cropName: "Maize", cultivationType: "Organic", year: "2025", area: "2.5" },
-      { cropName: "Turmeric", cultivationType: "Inorganic", year: "2024", area: "1.0" },
+      { cropNameKey: "cropNameBrinjal", cultivationType: "Organic", year: "2025", area: "1.2" },
+      { cropNameKey: "cropNameBanana", cultivationType: "Inorganic", year: "2024", area: "0.8" },
+      { cropNameKey: "cropNamePaddy", cultivationType: "Organic", year: "2025", area: "2.5" },
+      { cropNameKey: "cropNameTurmeric", cultivationType: "Inorganic", year: "2024", area: "1.0" },
     ];
     shouldSave = true;
   }
@@ -1308,10 +1621,180 @@ const seedDashboardData = () => {
   }
 };
 
+const getPesticideInstructions = (crop, disease) => {
+  if (!crop || !disease) {
+    return formatDashboardText("pesticideDefaultInstruction");
+  }
+
+  return `For ${crop} affected by ${disease}, apply the selected pesticide during early morning or late evening. Mix with clean water and spray uniformly on both leaf surfaces.`;
+};
+
+const getPesticideSafetyTips = (crop, disease) => {
+  if (!crop || !disease) {
+    return formatDashboardText("pesticideDefaultSafety");
+  }
+
+  return `Wear protective gloves and eyewear, keep children and livestock away, and do not inhale spray mist while treating ${crop} with recommended products for ${disease}.`;
+};
+
+const createPesticideCard = (item) => {
+  const card = document.createElement("article");
+  card.className = "entry-card pesticide-card";
+  card.setAttribute("data-search", `${item.name} ${item.type} ${item.manufacturer}`.toLowerCase());
+
+  const image = document.createElement("img");
+  image.className = "pesticide-card-image";
+  image.src = item.imageUrl || "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80";
+  image.alt = `${item.name} product image`;
+
+  const title = document.createElement("h3");
+  title.textContent = item.name;
+
+  const typeRow = createRow("productCategoryLabel", item.type);
+  const makerRow = createRow("pesticideManufacturerLabel", item.manufacturer);
+  const priceRow = createRow("productPriceLabel", `Rs ${item.price}`);
+
+  const body = document.createElement("p");
+  body.className = "entry-text";
+  body.textContent = item.detail || formatDashboardText("pesticideDefaultDetail");
+
+  const buttonRow = document.createElement("div");
+  buttonRow.className = "pesticide-card-actions";
+
+  const buyBtn = document.createElement("button");
+  buyBtn.type = "button";
+  buyBtn.className = "pesticide-buy-btn";
+  buyBtn.textContent = formatDashboardText("pesticideBuyButton");
+
+  buyBtn.addEventListener("click", () => {
+    buyBtn.textContent = formatDashboardText("pesticideBookedLabel");
+    buyBtn.disabled = true;
+  });
+
+  const bookBtn = document.createElement("button");
+  bookBtn.type = "button";
+  bookBtn.className = "pesticide-book-btn";
+  bookBtn.textContent = formatDashboardText("pesticideBookButton");
+
+  bookBtn.addEventListener("click", () => {
+    bookBtn.textContent = `${formatDashboardText("pesticideBookButton")} ✓`;
+    bookBtn.disabled = true;
+  });
+
+  const saveBtn = document.createElement("button");
+  saveBtn.type = "button";
+  saveBtn.className = "pesticide-save-btn";
+  saveBtn.textContent = formatDashboardText("pesticideSaveButton");
+
+  saveBtn.addEventListener("click", () => {
+    saveBtn.textContent = `${formatDashboardText("pesticideSaveButton")} ✓`;
+    saveBtn.disabled = true;
+  });
+
+  buttonRow.append(buyBtn, bookBtn, saveBtn);
+  card.append(image, title, typeRow, makerRow, priceRow, body, buttonRow);
+  return card;
+};
+
+const renderPesticideList = () => {
+  if (!pesticideList) {
+    return;
+  }
+
+  const query = pesticideSearchInput ? pesticideSearchInput.value.trim().toLowerCase() : "";
+  const visibleItems = dashboardData.pesticides.filter((item) => {
+    const searchable = `${item.name} ${item.type} ${item.manufacturer}`.toLowerCase();
+    return searchable.includes(query);
+  });
+
+  pesticideList.innerHTML = "";
+  if (!visibleItems.length) {
+    const emptyNote = document.createElement("p");
+    emptyNote.className = "empty-note";
+    emptyNote.textContent = formatDashboardText("pesticideEmptyList");
+    pesticideList.appendChild(emptyNote);
+    return;
+  }
+
+  visibleItems.forEach((item) => pesticideList.appendChild(createPesticideCard(item)));
+};
+
+const populatePesticideSelectors = () => {
+  if (pesticideCropSelect) {
+    pesticideCropSelect.innerHTML = "";
+    PESTICIDE_CROPS.forEach((crop, index) => {
+      const option = document.createElement("option");
+      option.value = crop;
+      option.textContent = crop;
+      if (index === 0) option.selected = true;
+      pesticideCropSelect.appendChild(option);
+    });
+  }
+
+  if (pesticideDiseaseSelect) {
+    pesticideDiseaseSelect.innerHTML = "";
+    PESTICIDE_DISEASES.forEach((disease, index) => {
+      const option = document.createElement("option");
+      option.value = disease;
+      option.textContent = disease;
+      if (index === 0) option.selected = true;
+      pesticideDiseaseSelect.appendChild(option);
+    });
+  }
+};
+
+const seedPesticideData = () => {
+  if (!dashboardData.pesticides.length) {
+    dashboardData.pesticides = [...PESTICIDE_DEFAULT_ITEMS];
+    saveDashboardData();
+  }
+};
+
+const updatePesticideSummary = () => {
+  if (!pesticideInstructionsText || !pesticideSafetyText) {
+    return;
+  }
+
+  const selectedCrop = pesticideCropSelect ? pesticideCropSelect.value : "";
+  const selectedDisease = pesticideDiseaseSelect ? pesticideDiseaseSelect.value : "";
+
+  pesticideInstructionsText.textContent = getPesticideInstructions(selectedCrop, selectedDisease);
+  pesticideSafetyText.textContent = getPesticideSafetyTips(selectedCrop, selectedDisease);
+  if (pesticideResultsWrap) {
+    pesticideResultsWrap.style.display = "block";
+  }
+};
+
+const addPesticideEntry = (item) => {
+  dashboardData.pesticides.unshift({
+    id: `pest-${Date.now()}`,
+    ...item,
+  });
+  saveDashboardData();
+  renderPesticideList();
+};
+
+const initPesticidePage = () => {
+  dashboardData.pesticides = loadStoredArray(storageKeys.pesticides);
+  seedPesticideData();
+  populatePesticideSelectors();
+  if (pesticideSearchInput) {
+    pesticideSearchInput.value = "";
+  }
+  if (pesticideSearchBtn) {
+    pesticideSearchBtn.disabled = !(pesticideCropSelect?.value && pesticideDiseaseSelect?.value);
+  }
+  renderPesticideList();
+  if (pesticideResultsWrap) {
+    pesticideResultsWrap.style.display = "none";
+  }
+};
+
 const initDashboardData = () => {
   dashboardData.prices = loadStoredArray(storageKeys.prices);
   dashboardData.posts = loadStoredArray(storageKeys.posts);
   dashboardData.products = loadStoredArray(storageKeys.products);
+  dashboardData.pesticides = loadStoredArray(storageKeys.pesticides);
   dashboardData.crops = loadStoredArray(storageKeys.crops);
   seedDashboardData();
   renderDashboardData();
@@ -1322,7 +1805,7 @@ const renderAddedCropCards = () => {
     return;
   }
 
-  addedCropCount.textContent = `${dashboardData.crops.length} of ${cropCatalog.length}`;
+  addedCropCount.textContent = `${dashboardData.crops.length} of ${CROP_CATALOG.length}`;
   addedCropsList.innerHTML = "";
 
   if (!dashboardData.crops.length) {
@@ -1341,8 +1824,7 @@ const renderAddedCropCards = () => {
       card.className = "added-crop-card";
 
       const title = document.createElement("h4");
-      title.textContent = item.cropName;
-
+    title.textContent = item.cropNameKey ? formatDashboardText(item.cropNameKey) : item.cropName;
       const meta = document.createElement("p");
       meta.className = "entry-meta";
       meta.innerHTML = `<span>${formatDashboardText("cropTypeLabel")}</span> <strong>${item.cultivationType}</strong> • <span>${formatDashboardText("cropYearLabel")}</span> <strong>${item.year}</strong> • <span>${formatDashboardText("cropAreaLabel")}</span> <strong>${item.area}</strong>`;
@@ -1377,7 +1859,7 @@ const renderCropSelection = (query = "") => {
   }
 
   const normalizedQuery = query.trim().toLowerCase();
-  const filtered = cropCatalog.filter((crop) => crop.toLowerCase().includes(normalizedQuery));
+  const filtered = CROP_CATALOG.filter((crop) => formatDashboardText(crop.key).toLowerCase().includes(normalizedQuery));
 
   cropSelectionList.innerHTML = "";
 
@@ -1389,16 +1871,16 @@ const renderCropSelection = (query = "") => {
 
     const icon = document.createElement("span");
     icon.className = "crop-select-icon";
-    icon.textContent = getCropEmoji(crop);
+    icon.textContent = getCropEmoji(crop.value);
 
     const label = document.createElement("span");
     label.className = "crop-select-name";
-    label.textContent = crop;
+    label.textContent = formatDashboardText(crop.key);
 
     row.append(icon, label);
     row.addEventListener("click", () => {
-      activeSelectedCrop = crop;
-      openCropModal(crop);
+      activeSelectedCrop = crop.key;
+      openCropModal(formatDashboardText(crop.key));
     });
 
     cropSelectionList.appendChild(row);
@@ -1478,10 +1960,10 @@ const populateMarketCrops = (stateName) => {
   const cropNames = MARKET_CROPS_30;
 
   marketCropSelect.innerHTML = "";
-  cropNames.forEach((cropName, index) => {
+  cropNames.forEach((crop, index) => {
     const option = document.createElement("option");
-    option.value = cropName;
-    option.textContent = cropName;
+    option.value = crop.value;
+    option.textContent = formatDashboardText(crop.key);
     if (index === 0) {
       option.selected = true;
     }
@@ -2358,9 +2840,16 @@ if (agProductsTile) {
   });
 }
 
+if (pesticideProductsTile) {
+  pesticideProductsTile.addEventListener("click", () => {
+    goToPage(10);
+    initPesticidePage();
+  });
+}
+
 if (equipmentRentalsTile) {
   equipmentRentalsTile.addEventListener("click", () => {
-    goToPage(10);
+    goToPage(11);
     renderEquipmentRentals();
   });
 }
@@ -2385,6 +2874,12 @@ if (agriDealersBackBtn) {
 
 if (agProductsBackBtn) {
   agProductsBackBtn.addEventListener("click", () => {
+    goToPage(4);
+  });
+}
+
+if (pesticidesBackBtn) {
+  pesticidesBackBtn.addEventListener("click", () => {
     goToPage(4);
   });
 }
@@ -2414,6 +2909,60 @@ if (cropSearchInput) {
   });
 }
 
+if (pesticideCropSelect || pesticideDiseaseSelect) {
+  const pesticideSelectionChanged = () => {
+    const hasSelection = pesticideCropSelect && pesticideCropSelect.value && pesticideDiseaseSelect && pesticideDiseaseSelect.value;
+    if (pesticideSearchBtn) {
+      pesticideSearchBtn.disabled = !hasSelection;
+    }
+  };
+
+  pesticideCropSelect?.addEventListener("change", pesticideSelectionChanged);
+  pesticideDiseaseSelect?.addEventListener("change", pesticideSelectionChanged);
+}
+
+if (pesticideSearchBtn) {
+  pesticideSearchBtn.addEventListener("click", () => {
+    updatePesticideSummary();
+    renderPesticideList();
+  });
+}
+
+if (pesticideSearchInput) {
+  pesticideSearchInput.addEventListener("input", () => {
+    renderPesticideList();
+  });
+}
+
+if (pesticideForm) {
+  pesticideForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!pesticideNameInput || !pesticideTypeInput || !pesticideManufacturerInput || !pesticidePriceInput) {
+      return;
+    }
+
+    const nameValue = pesticideNameInput.value.trim();
+    const typeValue = pesticideTypeInput.value.trim();
+    const manufacturerValue = pesticideManufacturerInput.value.trim();
+    const priceValue = pesticidePriceInput.value.trim();
+
+    if (!nameValue || !typeValue || !manufacturerValue || !priceValue) {
+      return;
+    }
+
+    addPesticideEntry({
+      name: nameValue,
+      type: typeValue,
+      manufacturer: manufacturerValue,
+      price: Number(priceValue),
+      detail: "Added by user. Follow safe usage and label instructions.",
+      status: "available",
+    });
+
+    pesticideForm.reset();
+  });
+}
+
 if (cropModalClose) {
   cropModalClose.addEventListener("click", closeCropModal);
 }
@@ -2439,7 +2988,7 @@ if (cropModalForm) {
     }
 
     dashboardData.crops.push({
-      cropName: activeSelectedCrop,
+      cropNameKey: activeSelectedCrop,
       cultivationType,
       year,
       area,
@@ -2452,10 +3001,70 @@ if (cropModalForm) {
   });
 }
 
+if (profileBackBtn) {
+  profileBackBtn.addEventListener("click", () => goToPage(4));
+}
+
+if (settingsBackBtn) {
+  settingsBackBtn.addEventListener("click", () => goToPage(4));
+}
+
+if (reportsBackBtn) {
+  reportsBackBtn.addEventListener("click", () => goToPage(4));
+}
+
+if (profilePhotoInput && profilePhotoPreview) {
+  profilePhotoInput.addEventListener("change", () => {
+    const file = profilePhotoInput.files ? profilePhotoInput.files[0] : null;
+    if (!file) {
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      profilePhotoPreview.style.backgroundImage = `url(${String(reader.result)})`;
+      profilePhotoPreview.textContent = "";
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+if (profileForm) {
+  profileForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!profileForm) {
+      return;
+    }
+    const submitButton = profileForm.querySelector("button[type='submit']");
+    if (submitButton) {
+      submitButton.textContent = formatDashboardText("profileSaveBtn");
+    }
+  });
+}
+
+if (settingsForm) {
+  settingsForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!settingsForm) {
+      return;
+    }
+    const submitButton = settingsForm.querySelector("button[type='submit']");
+    if (submitButton) {
+      submitButton.textContent = formatDashboardText("settingsSaveBtn");
+    }
+  });
+}
+
 bottomNavItems.forEach((item) => {
   item.addEventListener("click", () => {
     bottomNavItems.forEach((btn) => btn.classList.remove("active"));
     item.classList.add("active");
+
+    const pageKey = item.getAttribute("data-i18n");
+    if (pageKey === "navPesticides") {
+      goToPage(10);
+      initPesticidePage();
+    }
   });
 });
 
