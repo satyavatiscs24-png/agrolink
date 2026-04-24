@@ -24,6 +24,8 @@ This system will be accessible via a simple web/mobile interface, making it easy
 - Database: MongoDB  
 - AI Tools: Machine Learning APIs  
 
+
+
 ## Live Notification Feed Setup
 
 This project now includes a backend-powered real-time agriculture notification feed with:

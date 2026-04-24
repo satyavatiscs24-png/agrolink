@@ -195,11 +195,11 @@
                   <h2 data-i18n="quickActionsTitle">Quick Actions</h2>
                 </div>
                 <div class="quick-grid">
-                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Crop management" class="quick-icon" /><span data-i18n="quickCropManagement">Crop Management</span></button>
-                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Market advisory" class="quick-icon" /><span data-i18n="quickMarketAdvisory">Market Advisory</span></button>
-                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Agri dealers" class="quick-icon" /><span data-i18n="quickAgriDealers">Agri Dealers</span></button>
-                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Ag products" class="quick-icon" /><span data-i18n="quickAgriProducts">Ag Products</span></button>
-                  <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Equipment rentals" class="quick-icon" /><span data-i18n="quickEquipmentRentals">Equipment Rentals</span></button>
+                  <button type="button" class="quick-tile" id="cropManagementTile"><img src="assets/icon.svg" alt="Crop management" class="quick-icon" /><span data-i18n="quickCropManagement">Crop Management</span></button>
+                  <button type="button" class="quick-tile" id="marketAdvisoryTile"><img src="assets/icon.svg" alt="Market advisory" class="quick-icon" /><span data-i18n="quickMarketAdvisory">Market Advisory</span></button>
+                  <button type="button" class="quick-tile" id="agriDealersTile"><img src="assets/icon.svg" alt="Agri dealers" class="quick-icon" /><span data-i18n="quickAgriDealers">Agri Dealers</span></button>
+                  <button type="button" class="quick-tile" id="agProductsTile"><img src="assets/icon.svg" alt="Ag products" class="quick-icon" /><span data-i18n="quickAgriProducts">Ag Products</span></button>
+                  <button type="button" class="quick-tile" id="equipmentRentalsTile"><img src="assets/icon.svg" alt="Equipment rentals" class="quick-icon" /><span data-i18n="quickEquipmentRentals">Equipment Rentals</span></button>
                   <button type="button" class="quick-tile"><img src="assets/icon.svg" alt="Pesticide products" class="quick-icon" /><span data-i18n="quickPesticideProducts">Pesticide Products</span></button>
                 </div>
               </section>
@@ -290,8 +290,225 @@
             </nav>
           </div>
         </section>
+
+        <section class="page page-crop-management" aria-label="Crop management">
+          <div class="crop-management-shell">
+            <header class="crop-topbar">
+              <button type="button" class="crop-nav-btn" id="cropManagementBackBtn" aria-label="Back to dashboard">←</button>
+              <div class="crop-topbar-title-wrap">
+                <p class="crop-tier">Free Subscriber</p>
+                <h2>Crop Management</h2>
+              </div>
+              <div class="crop-topbar-actions" aria-hidden="true">⌕ 🛒 ⌂</div>
+            </header>
+
+            <section class="crop-hero-card" aria-label="Add crop banner">
+              <div class="crop-hero-illustration" aria-hidden="true">🌱</div>
+              <button type="button" id="goToCropSelectionBtn" class="crop-hero-add-btn">Add Crop</button>
+            </section>
+
+            <section class="added-crops-section" aria-live="polite">
+              <div class="added-crops-head">
+                <h3>My Added Crops</h3>
+                <p id="addedCropCount">0 of 30</p>
+              </div>
+              <div class="added-crops-list" id="addedCropsList">
+                <p class="empty-note">No crops added yet. Tap Add Crop to continue.</p>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="page page-crop-select" aria-label="Crop selection">
+          <div class="crop-select-shell">
+            <header class="crop-select-topbar">
+              <button type="button" class="crop-nav-btn" id="cropSelectBackBtn" aria-label="Back to crop management">←</button>
+              <h2>Select Your Crops</h2>
+            </header>
+
+            <div class="crop-search-wrap">
+              <input
+                id="cropSearchInput"
+                type="text"
+                placeholder="Search for crops"
+                aria-label="Search crops"
+              />
+            </div>
+
+            <div class="crop-selection-list" id="cropSelectionList" role="list"></div>
+          </div>
+        </section>
+
+        <section class="page page-market-advisory" aria-label="Market advisory">
+          <div class="market-shell">
+            <header class="market-topbar">
+              <button type="button" class="crop-nav-btn" id="marketAdvisoryBackBtn" aria-label="Back to dashboard">←</button>
+              <h2>Market Advisory</h2>
+              <button type="button" class="market-share-btn" aria-label="Share market advisory">⤴</button>
+            </header>
+
+            <div class="market-controls">
+              <label for="marketStateSelect">State</label>
+              <select id="marketStateSelect"></select>
+
+              <label for="marketCropSelect">Select Crop</label>
+              <select id="marketCropSelect"></select>
+
+              <p class="market-date" id="marketDateText"></p>
+            </div>
+
+            <div class="market-scroll" id="marketScroll">
+              <section class="market-panel">
+                <h3>Current crop prices (based on location)</h3>
+                <p id="locationPriceValue">Select state and crop</p>
+                <p class="market-subtext" id="locationPriceMeta">Location-aware district price will appear here.</p>
+              </section>
+
+              <section class="market-panel">
+                <h3>Price trends (graph)</h3>
+                <canvas id="marketTrendChart" height="170" aria-label="Crop price trends graph"></canvas>
+              </section>
+
+              <section class="market-panel">
+                <h3>Best time to sell</h3>
+                <p id="bestSellTimeText">Select state and crop to get suggestion.</p>
+              </section>
+
+              <section class="market-panel">
+                <h3>Nearby markets (mandis)</h3>
+                <div class="nearby-mandis" id="nearbyMandisList"></div>
+              </section>
+
+              <section class="market-panel">
+                <h3>District Price Details</h3>
+                <div class="district-price-list" id="districtPriceList"></div>
+              </section>
+            </div>
+          </div>
+        </section>
+
+        <section class="page page-agri-dealers" aria-label="Agri Dealers">
+          <div class="dealers-shell">
+            <header class="dealers-topbar">
+              <button type="button" class="crop-nav-btn" id="agriDealersBackBtn" aria-label="Back to dashboard">←</button>
+              <h2>Agri Dealers</h2>
+              <button type="button" class="dealers-refresh-btn" id="agriDealersRefreshBtn" aria-label="Refresh nearby dealers">⟳</button>
+            </header>
+
+            <section class="dealers-hero-card" aria-live="polite">
+              <p class="dealers-kicker">Nearest Shop</p>
+              <h3 id="nearestDealerSummary">Nearest fertilizer shop - calculating distance...</h3>
+              <p id="nearestDealerDetail">Enable location to get live nearby dealer ranking.</p>
+            </section>
+
+            <section class="dealers-map-card">
+              <div class="dealers-map-head">
+                <h3>Directions (Map)</h3>
+                <button type="button" class="dealer-map-link" id="dealerOpenMapBtn">Open Full Map</button>
+              </div>
+              <iframe
+                id="dealerMapFrame"
+                title="Dealer directions map"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </section>
+
+            <section class="dealers-list-wrap">
+              <div class="dealers-list-head">
+                <h3>List of Nearby Shops</h3>
+                <input id="dealerSearchInput" type="text" placeholder="Search shop, location, products" aria-label="Search dealers" />
+              </div>
+              <div class="dealers-list" id="dealersList"></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="page page-ag-products" aria-label="Ag Products">
+          <div class="ag-products-shell">
+            <header class="ag-products-topbar">
+              <button type="button" class="crop-nav-btn" id="agProductsBackBtn" aria-label="Back to dashboard">←</button>
+              <h2>Buy/Sell Agri Products</h2>
+              <button type="button" class="ag-products-refresh" id="agProductsRefreshBtn" aria-label="Refresh products">⟳</button>
+            </header>
+
+            <div class="ag-products-categories" id="agProductsCategoryTabs">
+              <button type="button" class="ag-category-chip active" data-category="all">🌾 All</button>
+              <button type="button" class="ag-category-chip" data-category="seeds">🌱 Seeds</button>
+              <button type="button" class="ag-category-chip" data-category="fertilizers">🧪 Fertilizers</button>
+              <button type="button" class="ag-category-chip" data-category="tools">🛠 Tools</button>
+              <button type="button" class="ag-category-chip" data-category="organic">🍃 Organic</button>
+              <button type="button" class="ag-category-chip" data-category="hybrid">🧬 Hybrid</button>
+            </div>
+
+            <div class="ag-products-filter-row">
+              <input id="agProductsSearch" type="text" placeholder="Search products, category, seller" aria-label="Search agri products" />
+              <p id="agProductsCount">0 products</p>
+            </div>
+
+            <section class="ag-products-list" id="agProductsList" aria-live="polite"></section>
+          </div>
+        </section>
+
+        <section class="page page-equipment-rentals" aria-label="Equipment Rentals">
+          <div class="rentals-shell">
+            <header class="rentals-topbar">
+              <button type="button" class="crop-nav-btn" id="equipmentRentalsBackBtn" aria-label="Back to dashboard">←</button>
+              <h2>Find Equipments</h2>
+              <button type="button" class="rentals-refresh-btn" id="equipmentRentalsRefreshBtn" aria-label="Refresh nearby rentals">⟳</button>
+            </header>
+
+            <div class="rentals-location-row">
+              <p id="rentalsLocationText">📍 Bengaluru</p>
+              <button type="button" id="rentalsChangeLocationBtn">Change Location</button>
+            </div>
+
+            <div class="rentals-toggle" id="rentalsToggleWrap">
+              <button type="button" class="rentals-toggle-btn active" data-filter="nearby">Near By</button>
+              <button type="button" class="rentals-toggle-btn" data-filter="all">All</button>
+            </div>
+
+            <p class="rentals-meta" id="rentalsMetaText">Loading equipment availability...</p>
+
+            <section class="rentals-list" id="rentalsList" aria-live="polite"></section>
+          </div>
+        </section>
       </div>
     </main>
+
+    <div class="crop-modal" id="cropModal" aria-hidden="true">
+      <div class="crop-modal-backdrop" id="cropModalBackdrop"></div>
+      <div class="crop-modal-card" role="dialog" aria-modal="true" aria-labelledby="cropModalTitle">
+        <div class="crop-modal-head">
+          <h3 id="cropModalTitle">Add Crop</h3>
+          <button type="button" id="cropModalClose" class="crop-modal-close" aria-label="Close add crop form">×</button>
+        </div>
+
+        <form id="cropModalForm" class="crop-modal-form" novalidate>
+          <p class="crop-modal-selected">Crop: <strong id="selectedCropName">-</strong></p>
+
+          <label for="cultivationTypeInput">Cultivation Type</label>
+          <select id="cultivationTypeInput" required>
+            <option value="">Select type</option>
+            <option value="Organic">Organic</option>
+            <option value="Inorganic">Inorganic</option>
+          </select>
+
+          <div class="crop-modal-grid">
+            <div>
+              <label for="cultivationYearInput">Year</label>
+              <select id="cultivationYearInput" required></select>
+            </div>
+            <div>
+              <label for="cultivationAreaInput">Cultivation Area</label>
+              <input id="cultivationAreaInput" type="number" min="0.1" step="0.1" placeholder="Enter area" required />
+            </div>
+          </div>
+
+          <button type="submit" class="crop-modal-submit">ADD CROP</button>
+        </form>
+      </div>
+    </div>
 
     <script src="script.js?v=20260423e"></script>
   </body>

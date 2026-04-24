@@ -34,7 +34,7 @@ body {
 
 .page-track {
   display: flex;
-  width: 500vw;
+  width: 1100vw;
   height: 100vh;
   transform: translateX(0);
   transition: transform 420ms ease;
@@ -1289,6 +1289,1350 @@ body {
   display: none !important;
 }
 
+.page-crop-management,
+.page-crop-select {
+  background: #f3f3f3;
+}
+
+.crop-management-shell,
+.crop-select-shell {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.crop-topbar,
+.crop-select-topbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.8rem;
+  background: linear-gradient(90deg, #04656d, #0f7378);
+  color: #f3ffff;
+  padding: 0.6rem 0.8rem;
+}
+
+.crop-topbar-title-wrap h2,
+.crop-select-topbar h2 {
+  margin: 0;
+  font-size: 1.45rem;
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+}
+
+.crop-tier {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.92;
+}
+
+.crop-topbar-actions {
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.crop-nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.09);
+  color: #f5fffd;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.crop-hero-card {
+  margin: 0.8rem;
+  background: #ece4ef;
+  border-radius: 18px;
+  border: 1px solid rgba(52, 52, 52, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem;
+}
+
+.crop-hero-illustration {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 2.5rem;
+  background: #ffffff;
+  border: 1px solid rgba(16, 66, 40, 0.16);
+}
+
+.crop-hero-add-btn {
+  flex: 1;
+  border: none;
+  border-radius: 999px;
+  padding: 1rem;
+  background: #1fb07f;
+  color: #e8fff7;
+  font-size: 2rem;
+  font-family: "DM Serif Display", serif;
+  cursor: pointer;
+}
+
+.added-crops-section {
+  padding: 0 0.8rem 0.8rem;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.added-crops-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.added-crops-head h3,
+.added-crops-head p {
+  margin: 0;
+  color: #25382c;
+}
+
+.added-crops-list {
+  display: grid;
+  gap: 0.55rem;
+  overflow-y: auto;
+  padding-bottom: 0.8rem;
+}
+
+.added-crop-card {
+  border-radius: 12px;
+  background: #fbfff8;
+  border: 1px solid rgba(18, 63, 35, 0.18);
+  padding: 0.65rem;
+}
+
+.added-crop-card h4 {
+  margin: 0 0 0.3rem;
+  font-size: 1rem;
+  color: #1a3321;
+}
+
+.crop-select-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+}
+
+.crop-select-topbar h2 {
+  font-size: 1.3rem;
+}
+
+.crop-search-wrap {
+  padding: 0.75rem;
+}
+
+.crop-search-wrap input {
+  width: 100%;
+  border: 1px solid rgba(30, 55, 44, 0.2);
+  border-radius: 12px;
+  padding: 0.85rem;
+  font: inherit;
+  font-size: 1rem;
+  background: #f8f8f8;
+  outline: none;
+}
+
+.crop-search-wrap input:focus {
+  border-color: rgba(46, 140, 82, 0.75);
+  box-shadow: 0 0 0 3px rgba(46, 140, 82, 0.14);
+}
+
+.crop-selection-list {
+  flex: 1;
+  overflow-y: auto;
+  display: grid;
+  gap: 0.5rem;
+  padding: 0 0.75rem 0.8rem;
+}
+
+.crop-select-item {
+  border: 1px solid rgba(21, 56, 30, 0.16);
+  border-radius: 12px;
+  background: #f2f2f2;
+  color: #1e2d24;
+  padding: 0.65rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+}
+
+.crop-select-item:hover {
+  border-color: rgba(27, 122, 78, 0.48);
+  background: #ffffff;
+}
+
+.crop-select-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: #e4f5e7;
+  font-size: 1.35rem;
+}
+
+.crop-select-name {
+  font-size: 1.45rem;
+  font-family: "DM Serif Display", serif;
+}
+
+.crop-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+}
+
+.crop-modal.open {
+  display: block;
+}
+
+.crop-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+}
+
+.crop-modal-card {
+  position: relative;
+  width: min(92vw, 420px);
+  margin: 10vh auto;
+  background: #f5f0f5;
+  border: 2px solid rgba(66, 66, 66, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.28);
+}
+
+.crop-modal-head {
+  background: #f4e238;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0.8rem;
+}
+
+.crop-modal-head h3 {
+  margin: 0;
+  color: #1f1f1f;
+}
+
+.crop-modal-close {
+  border: none;
+  background: transparent;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: #ff4d64;
+  cursor: pointer;
+}
+
+.crop-modal-form {
+  padding: 0.8rem;
+  display: grid;
+  gap: 0.55rem;
+  background: #f1f1f1;
+}
+
+.crop-modal-selected {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #1e1e1e;
+}
+
+.crop-modal-form label {
+  font-size: 0.92rem;
+  color: #3a3a3a;
+}
+
+.crop-modal-form input,
+.crop-modal-form select {
+  border: 1px solid rgba(24, 69, 49, 0.2);
+  border-radius: 8px;
+  padding: 0.6rem 0.7rem;
+  font: inherit;
+  background: #ffffff;
+  outline: none;
+}
+
+.crop-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.crop-modal-grid > div {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.crop-modal-form input:focus,
+.crop-modal-form select:focus {
+  border-color: rgba(46, 140, 82, 0.75);
+  box-shadow: 0 0 0 3px rgba(46, 140, 82, 0.14);
+}
+
+.crop-modal-submit {
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem;
+  background: #f4e238;
+  color: #1f1f1f;
+  font-weight: 800;
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+
+.page-market-advisory {
+  background: #ececec;
+}
+
+.market-shell {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  animation: marketPageIn 420ms ease-out both;
+}
+
+.market-topbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.58rem 0.75rem;
+  color: #f3ffff;
+  background: linear-gradient(90deg, #04656d, #0f7378);
+}
+
+.market-topbar h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+}
+
+.market-share-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.09);
+  color: #f5fffd;
+  font-size: 1.25rem;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.market-share-btn:hover {
+  transform: translateY(-2px) rotate(-6deg);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.market-controls {
+  background: #f1f1f1;
+  padding: 0.75rem;
+  display: grid;
+  gap: 0.35rem;
+  border-bottom: 1px solid rgba(20, 64, 48, 0.12);
+}
+
+.market-controls label {
+  font-size: 0.95rem;
+  color: #1f4e39;
+  font-weight: 600;
+}
+
+.market-controls select {
+  width: 100%;
+  border: 1px solid rgba(20, 64, 48, 0.2);
+  border-radius: 9px;
+  padding: 0.7rem;
+  font: inherit;
+  background: #e7e9ef;
+  outline: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.market-controls select:focus {
+  border-color: rgba(46, 140, 82, 0.75);
+  box-shadow: 0 0 0 3px rgba(46, 140, 82, 0.14);
+  transform: translateY(-1px);
+}
+
+.market-date {
+  margin: 0.15rem 0 0;
+  padding: 0.55rem 0.6rem;
+  border-radius: 8px;
+  background: #ebddd8;
+  color: #3c3430;
+  font-size: 1.05rem;
+}
+
+.market-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.65rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.market-panel {
+  border-radius: 12px;
+  border: 1px solid rgba(20, 64, 48, 0.12);
+  background: #f8f8f8;
+  padding: 0.68rem;
+  animation: marketCardRise 420ms ease both;
+  transition: transform 200ms ease, box-shadow 220ms ease;
+}
+
+.market-panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(14, 62, 44, 0.12);
+}
+
+.market-panel h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1rem;
+  color: #1f3f30;
+}
+
+#locationPriceValue {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1d4e37;
+}
+
+.market-subtext {
+  margin: 0.25rem 0 0;
+  font-size: 0.84rem;
+  color: #4b5b53;
+}
+
+#marketTrendChart {
+  width: 100%;
+  border: 1px solid rgba(20, 64, 48, 0.14);
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgba(20, 64, 48, 0.1);
+}
+
+.nearby-mandis {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.mandi-pill {
+  margin: 0;
+  padding: 0.55rem 0.6rem;
+  border-radius: 10px;
+  background: #efe8d8;
+  border: 1px solid rgba(83, 64, 26, 0.14);
+  color: #3d3221;
+  animation: marketCardRise 420ms ease both;
+}
+
+.district-price-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.district-card {
+  border-radius: 12px;
+  border: 1px solid rgba(20, 64, 48, 0.12);
+  background: #fffdfb;
+  padding: 0.6rem;
+  animation: districtPop 380ms ease both;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.district-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(29, 119, 76, 0.38);
+}
+
+.district-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.district-card-head h4,
+.district-card-head p {
+  margin: 0;
+}
+
+.district-card-head h4 {
+  font-size: 0.98rem;
+  color: #202f27;
+}
+
+.district-card-head p {
+  font-size: 0.8rem;
+  color: #505f57;
+}
+
+.district-prices-row {
+  margin-top: 0.45rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.district-prices-row p {
+  margin: 0;
+  display: grid;
+  gap: 0.08rem;
+}
+
+.district-prices-row span {
+  font-size: 0.72rem;
+  color: #4e5f56;
+}
+
+.district-prices-row strong {
+  font-size: 1rem;
+  color: #21773f;
+}
+
+.page-agri-dealers {
+  background:
+    radial-gradient(circle at 18% 10%, #d6f8e3 0%, #ecf4f0 44%, #e3ece7 100%),
+    linear-gradient(180deg, #e6efe9, #f4f7f5);
+}
+
+.dealers-shell {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.dealers-topbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.58rem 0.75rem;
+  color: #f4fffc;
+  background: linear-gradient(90deg, #055b5a, #0c7a72);
+}
+
+.dealers-topbar h2 {
+  margin: 0;
+  font-size: 1.32rem;
+  font-family: "DM Serif Display", serif;
+}
+
+.dealers-refresh-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.1);
+  color: #f4fffc;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 190ms ease, background 190ms ease;
+}
+
+.dealers-refresh-btn:hover {
+  transform: rotate(28deg) scale(1.03);
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.dealers-hero-card {
+  margin: 0.65rem;
+  border-radius: 16px;
+  padding: 0.85rem 0.95rem;
+  background:
+    linear-gradient(140deg, rgba(6, 96, 88, 0.95), rgba(21, 127, 101, 0.92)),
+    radial-gradient(circle at right top, rgba(255, 255, 255, 0.22), transparent 60%);
+  color: #f8fffd;
+  box-shadow: 0 16px 30px rgba(8, 74, 59, 0.22);
+  animation: dealerHeroIn 420ms ease-out both;
+}
+
+.dealers-kicker {
+  margin: 0;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.9;
+}
+
+.dealers-hero-card h3 {
+  margin: 0.24rem 0 0.2rem;
+  font-size: 1.2rem;
+}
+
+.dealers-hero-card p {
+  margin: 0;
+  opacity: 0.94;
+}
+
+.dealers-map-card {
+  margin: 0 0.65rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(20, 64, 48, 0.14);
+  padding: 0.7rem;
+  box-shadow: 0 12px 26px rgba(19, 53, 41, 0.12);
+}
+
+.dealers-map-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.48rem;
+}
+
+.dealers-map-head h3 {
+  margin: 0;
+  color: #1f3f30;
+  font-size: 1rem;
+}
+
+.dealer-map-link {
+  border: none;
+  border-radius: 999px;
+  padding: 0.45rem 0.72rem;
+  background: #1f8f62;
+  color: #f2fff9;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#dealerMapFrame {
+  width: 100%;
+  height: 180px;
+  border: none;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.dealers-list-wrap {
+  margin: 0.65rem;
+  margin-top: 0.6rem;
+  border-radius: 14px;
+  border: 1px solid rgba(20, 64, 48, 0.14);
+  background: rgba(255, 255, 255, 0.8);
+  min-height: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.dealers-list-head {
+  padding: 0.7rem;
+  border-bottom: 1px solid rgba(20, 64, 48, 0.12);
+  display: grid;
+  gap: 0.45rem;
+}
+
+.dealers-list-head h3 {
+  margin: 0;
+  color: #1f3f30;
+  font-size: 1rem;
+}
+
+#dealerSearchInput {
+  width: 100%;
+  border: 1px solid rgba(20, 64, 48, 0.2);
+  border-radius: 10px;
+  padding: 0.62rem 0.72rem;
+  font: inherit;
+  outline: none;
+  transition: box-shadow 180ms ease, border-color 180ms ease;
+}
+
+#dealerSearchInput:focus {
+  border-color: rgba(32, 132, 84, 0.74);
+  box-shadow: 0 0 0 3px rgba(32, 132, 84, 0.16);
+}
+
+.dealers-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.65rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.dealer-card {
+  border-radius: 13px;
+  background:
+    linear-gradient(160deg, #ffffff, #f2f8f3),
+    radial-gradient(circle at right top, rgba(21, 143, 109, 0.1), transparent 55%);
+  border: 1px solid rgba(24, 69, 49, 0.14);
+  padding: 0.66rem;
+  box-shadow: 0 10px 22px rgba(16, 59, 42, 0.11);
+  animation: dealerCardIn 420ms ease both;
+  animation-delay: var(--dealer-delay, 0ms);
+  transition: transform 190ms ease, box-shadow 190ms ease;
+}
+
+.dealer-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(16, 59, 42, 0.16);
+}
+
+.dealer-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.dealer-card-head h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #1b3527;
+}
+
+.dealer-type {
+  margin: 0.18rem 0 0;
+  color: #486056;
+  font-size: 0.82rem;
+}
+
+.dealer-distance {
+  display: inline-block;
+  background: #e4f6e8;
+  border: 1px solid rgba(20, 100, 61, 0.24);
+  color: #1d6f43;
+  border-radius: 999px;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.77rem;
+  font-weight: 700;
+}
+
+.dealer-meta-row {
+  margin-top: 0.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.8rem;
+  color: #3d5048;
+  font-size: 0.82rem;
+}
+
+.dealer-rating-row {
+  margin-top: 0.42rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.38rem;
+  color: #495e54;
+  font-size: 0.82rem;
+}
+
+.dealer-stars {
+  color: #f0a315;
+  letter-spacing: 0.03em;
+}
+
+.dealer-rating-row strong {
+  color: #204a35;
+}
+
+.dealer-review {
+  margin: 0.45rem 0 0;
+  color: #374f45;
+  font-size: 0.83rem;
+  font-style: italic;
+}
+
+.dealer-actions {
+  margin-top: 0.54rem;
+  display: flex;
+  align-items: center;
+  gap: 0.42rem;
+  flex-wrap: wrap;
+}
+
+.dealer-action-btn {
+  border: none;
+  border-radius: 9px;
+  padding: 0.38rem 0.65rem;
+  text-decoration: none;
+  background: #1a8f5f;
+  color: #effff6;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.dealer-open-state {
+  margin-left: auto;
+  font-size: 0.75rem;
+  border-radius: 999px;
+  padding: 0.19rem 0.5rem;
+  border: 1px solid rgba(20, 69, 49, 0.2);
+}
+
+.dealer-open-state.open {
+  color: #1b7a44;
+  background: #e5f7e9;
+}
+
+.dealer-open-state.closed {
+  color: #84532a;
+  background: #f8ecde;
+}
+
+.page-ag-products {
+  background:
+    linear-gradient(165deg, #edf6f0 0%, #f7faf8 50%, #eef4f8 100%),
+    radial-gradient(circle at 85% 0%, rgba(31, 146, 110, 0.12), transparent 48%);
+}
+
+.ag-products-shell {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ag-products-topbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.58rem 0.75rem;
+  color: #f5fffc;
+  background: linear-gradient(90deg, #045f62, #0f7f74);
+}
+
+.ag-products-topbar h2 {
+  margin: 0;
+  font-size: 1.24rem;
+  font-family: "DM Serif Display", serif;
+}
+
+.ag-products-refresh {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  background: rgba(255, 255, 255, 0.14);
+  color: #f4fffc;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.ag-products-categories {
+  display: flex;
+  gap: 0.45rem;
+  overflow-x: auto;
+  padding: 0.68rem;
+}
+
+.ag-category-chip {
+  border: 1px solid rgba(24, 69, 49, 0.18);
+  background: #edf5ef;
+  color: #214536;
+  border-radius: 999px;
+  padding: 0.42rem 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.ag-category-chip.active {
+  background: linear-gradient(90deg, #188a5b, #25a96e);
+  color: #f4fff8;
+  border-color: transparent;
+}
+
+.ag-products-filter-row {
+  padding: 0 0.68rem 0.6rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+#agProductsSearch {
+  border: 1px solid rgba(24, 69, 49, 0.2);
+  border-radius: 10px;
+  padding: 0.62rem 0.72rem;
+  font: inherit;
+  outline: none;
+}
+
+#agProductsSearch:focus {
+  border-color: rgba(32, 132, 84, 0.74);
+  box-shadow: 0 0 0 3px rgba(32, 132, 84, 0.16);
+}
+
+#agProductsCount {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #406355;
+}
+
+.ag-products-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 0.68rem 0.8rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.ag-product-card {
+  border-radius: 14px;
+  border: 1px solid rgba(24, 69, 49, 0.14);
+  background:
+    linear-gradient(160deg, #ffffff, #f1f8f4),
+    radial-gradient(circle at right top, rgba(19, 152, 102, 0.12), transparent 58%);
+  padding: 0.72rem;
+  box-shadow: 0 10px 24px rgba(16, 59, 42, 0.11);
+  animation: agProductIn 360ms ease both;
+  animation-delay: var(--ag-delay, 0ms);
+}
+
+.ag-product-image {
+  width: 100%;
+  height: 132px;
+  object-fit: cover;
+  border-radius: 11px;
+  margin-bottom: 0.56rem;
+  border: 1px solid rgba(19, 92, 63, 0.16);
+  background: #edf5ef;
+}
+
+.ag-product-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+
+.ag-product-card h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #1f3a2d;
+}
+
+.ag-product-badge {
+  text-transform: capitalize;
+  border-radius: 999px;
+  padding: 0.2rem 0.54rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: #e0f3e5;
+  color: #1d7044;
+  border: 1px solid rgba(24, 114, 68, 0.2);
+}
+
+.ag-product-seller {
+  margin: 0.35rem 0 0;
+  color: #4a6056;
+  font-size: 0.82rem;
+}
+
+.ag-product-price {
+  margin: 0.4rem 0 0;
+  color: #158357;
+  font-weight: 800;
+  font-size: 1.28rem;
+}
+
+.ag-product-price span {
+  color: #4f645a;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.ag-product-qty-row {
+  margin-top: 0.52rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.ag-product-qty-label {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #4a6056;
+}
+
+.ag-product-qty-control {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.qty-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 8px;
+  background: #e7f3ec;
+  color: #216645;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.qty-input {
+  width: 52px;
+  border: 1px solid rgba(24, 69, 49, 0.2);
+  border-radius: 8px;
+  padding: 0.35rem 0.4rem;
+  text-align: center;
+  font: inherit;
+}
+
+.ag-product-total {
+  margin: 0.45rem 0 0;
+  color: #476055;
+  font-size: 0.84rem;
+}
+
+.ag-product-total strong {
+  color: #147b52;
+  font-size: 1rem;
+}
+
+.ag-product-actions {
+  margin-top: 0.58rem;
+  display: flex;
+  gap: 0.44rem;
+}
+
+.ag-product-btn {
+  flex: 1;
+  border: none;
+  border-radius: 10px;
+  padding: 0.48rem 0.6rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ag-buy-btn {
+  background: #148457;
+  color: #f1fff7;
+}
+
+.ag-order-btn {
+  background: #efe9d9;
+  color: #6a4d23;
+}
+
+.page-equipment-rentals {
+  background:
+    linear-gradient(165deg, #f2f5f3 0%, #f7f9f8 45%, #eef3f0 100%),
+    radial-gradient(circle at 18% 6%, rgba(17, 135, 109, 0.14), transparent 50%);
+}
+
+.rentals-shell {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.rentals-topbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.6rem;
+  align-items: center;
+  padding: 0.58rem 0.75rem;
+  color: #f2fffc;
+  background: linear-gradient(90deg, #055e60, #0e7871);
+}
+
+.rentals-topbar h2 {
+  margin: 0;
+  font-size: 1.24rem;
+  font-family: "DM Serif Display", serif;
+}
+
+.rentals-refresh-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.12);
+  color: #f2fffc;
+  cursor: pointer;
+}
+
+.rentals-location-row {
+  margin: 0.65rem;
+  margin-bottom: 0.45rem;
+  border-radius: 12px;
+  background: #efe8f0;
+  border: 1px solid rgba(35, 78, 62, 0.13);
+  padding: 0.52rem 0.64rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.rentals-location-row p {
+  margin: 0;
+  color: #2c3d35;
+  font-weight: 600;
+}
+
+#rentalsChangeLocationBtn {
+  border: none;
+  border-radius: 999px;
+  padding: 0.35rem 0.58rem;
+  background: #1a8e62;
+  color: #f2fff8;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.rentals-toggle {
+  margin: 0 0.65rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+}
+
+.rentals-toggle-btn {
+  border: 1px solid rgba(25, 83, 61, 0.2);
+  border-radius: 999px;
+  padding: 0.65rem 0.55rem;
+  background: #f5f7f6;
+  color: #29493c;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.rentals-toggle-btn.active {
+  background: linear-gradient(90deg, #1a9a68, #23b279);
+  color: #f4fff8;
+  border-color: transparent;
+}
+
+.rentals-meta {
+  margin: 0.55rem 0.65rem 0;
+  text-align: center;
+  color: #3e554a;
+  font-size: 0.88rem;
+}
+
+.rentals-list {
+  flex: 1;
+  overflow-y: auto;
+  margin: 0.55rem 0.65rem 0.72rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.rental-card {
+  border-radius: 13px;
+  border: 1px solid rgba(22, 70, 51, 0.14);
+  background:
+    linear-gradient(160deg, #ffffff, #f0f7f3),
+    radial-gradient(circle at right top, rgba(20, 148, 99, 0.11), transparent 56%);
+  padding: 0.7rem;
+  box-shadow: 0 10px 22px rgba(16, 59, 42, 0.11);
+  animation: rentalCardIn 360ms ease both;
+  animation-delay: var(--rental-delay, 0ms);
+}
+
+.rental-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.rental-card-head h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #1e3b2e;
+}
+
+.rental-type-chip {
+  border-radius: 999px;
+  padding: 0.18rem 0.55rem;
+  background: #e0f3e5;
+  border: 1px solid rgba(22, 107, 68, 0.2);
+  color: #1d6f43;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.rental-location {
+  margin: 0.38rem 0 0;
+  color: #486055;
+  font-size: 0.84rem;
+}
+
+.rental-price {
+  margin: 0.4rem 0 0;
+  color: #147f53;
+  font-size: 1.22rem;
+  font-weight: 800;
+}
+
+.rental-price span {
+  font-size: 0.82rem;
+  color: #4c6258;
+  font-weight: 600;
+}
+
+.rental-actions {
+  margin-top: 0.55rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rental-availability {
+  border-radius: 999px;
+  padding: 0.2rem 0.56rem;
+  font-size: 0.76rem;
+  border: 1px solid rgba(25, 73, 53, 0.2);
+}
+
+.rental-availability.available {
+  color: #1b7b45;
+  background: #e8f8eb;
+}
+
+.rental-availability.unavailable {
+  color: #8b5b2e;
+  background: #f9eddf;
+}
+
+.rental-book-btn {
+  border: none;
+  border-radius: 9px;
+  padding: 0.45rem 0.72rem;
+  background: #1a8f5f;
+  color: #effff6;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.rental-book-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@keyframes rentalCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(9px) scale(0.992);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes agProductIn {
+  from {
+    opacity: 0;
+    transform: translateY(9px) scale(0.992);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dealerHeroIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dealerCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.district-card:nth-child(1) {
+  animation-delay: 20ms;
+}
+
+.district-card:nth-child(2) {
+  animation-delay: 50ms;
+}
+
+.district-card:nth-child(3) {
+  animation-delay: 80ms;
+}
+
+.district-card:nth-child(4) {
+  animation-delay: 110ms;
+}
+
+.district-card:nth-child(5) {
+  animation-delay: 140ms;
+}
+
+.district-card:nth-child(6) {
+  animation-delay: 170ms;
+}
+
+@keyframes marketPageIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marketCardRise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes districtPop {
+  from {
+    opacity: 0;
+    transform: scale(0.985) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 @media (min-width: 900px) {
   .dashboard-shell {
     background: rgba(247, 251, 247, 0.97);
@@ -1679,6 +3023,56 @@ body {
   .entry-form textarea,
   .entry-form button {
     font-size: 0.82rem;
+  }
+
+  .crop-hero-add-btn {
+    font-size: 1.55rem;
+  }
+
+  .crop-select-name {
+    font-size: 1.2rem;
+  }
+
+  .crop-modal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .market-scroll {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-content: start;
+  }
+
+  .market-panel:last-child {
+    grid-column: span 2;
+  }
+
+  .dealers-shell {
+    padding: 0.45rem;
+  }
+
+  .dealers-hero-card,
+  .dealers-map-card,
+  .dealers-list-wrap {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .dealers-layout {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 0.75rem;
+  }
+
+  .district-prices-row {
+    grid-template-columns: 1fr;
+  }
+
+  .dealer-actions {
+    gap: 0.32rem;
+  }
+
+  .dealer-open-state {
+    margin-left: 0;
   }
 }
 
